@@ -17,6 +17,7 @@ public class Mafia extends Player{
 	}
 	else{
 	    kill(other);
+	    return 0;
 	}
 	
     }
