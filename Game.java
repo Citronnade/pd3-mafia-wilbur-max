@@ -13,6 +13,10 @@ public class Game{
 	players = new PriorityQueue(15, new PriorityComp());
     }
 
+    public Game(int numPlayers){
+    players = new PriorityQueue(numPlayers,new PriorityComp());
+    }
+
     public  void tick(){
 	for (Player p: players){
 	    p.act();
