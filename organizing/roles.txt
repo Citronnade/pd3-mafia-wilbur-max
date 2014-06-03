@@ -1,0 +1,10 @@
+Townspeople:
+-Villager : Standard, basic Townsperson with ample voting power but not much else (priority 0)
+-Cop : During the night can inspect someone and is given whether that person is a townsperson or a mafioso (priority 2?)
+-Doctor : During the night can choose someone to save (priority 3?)
+
+Mafia:
+-Regular Mafioso : During the night, discusses who to kill for the night (priority 1)
+
+Special:
+-???
