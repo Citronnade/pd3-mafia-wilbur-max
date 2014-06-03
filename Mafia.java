@@ -22,12 +22,6 @@ public class Mafia extends Player{
 	
     }
 
-
-    public Player chooseTarget(){
-	//ask player to do stuff here
-	return this; //obviously not finished yet
-    }
-
     public int kill(Player other){ //this can return some interesting information
 	other.addMark(new Mark(this, "death"));
 	return 1;

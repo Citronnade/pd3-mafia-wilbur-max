@@ -19,4 +19,9 @@ public abstract class Player{
     public void addMark(Mark m){
 	marks.add(m);
     }
+
+    public Player chooseTarget(){
+    //ask player to do stuff here
+    return this; //obviously not finished yet
+    }
 }

@@ -19,10 +19,6 @@ public class Cop extends Player {
 	    return 0;
 	}
     }
-
-    public Player chooseTarget() {
-		return null;
-    }
     
     public int inspect (Player other) {
     	return 0;
