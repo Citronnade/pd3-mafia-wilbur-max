@@ -28,6 +28,7 @@ public class Driver{
     			//+ "[" + str.substring(0,1) + "]"
     			 + " ");
     	}
+	System.out.println();
     	String in = s.next();
     	System.out.print("What is your name? ");
     	String name = s.next();
