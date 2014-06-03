@@ -7,7 +7,7 @@ public class Doctor extends Player{
 	priority = 2;
     }
 
-    public void act(){
+    public int act(){
 	Player other;
 	other = chooseTarget();
 	if (false){
