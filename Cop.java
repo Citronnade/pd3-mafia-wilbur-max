@@ -21,10 +21,11 @@ public class Cop extends Player {
     }
 
     public Player chooseTarget() {
-	
+		return null;
     }
     
     public int inspect (Player other) {
+    	return 0;
 	//if player is guilty, return guilty else return innocent
     }
 
