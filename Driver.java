@@ -48,10 +48,11 @@ public class Driver{
     	}//there's gotta be a better way to do this
 
     	game.addPlayer(temp);
-
-    	
     }
 
+    public static void loopThroughPlayers(){
+
+    }
     
     public static void main(String args[]){ //perhaps can set up with args[] instead...
 	startUp();
