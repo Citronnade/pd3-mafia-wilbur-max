@@ -21,7 +21,7 @@ public class Cop extends Player {
     }
     
     public int inspect (Player other) {
-	if (other instanceOf Mafia){
+	if (other instanceof Mafia){
 	    System.out.println ("mafia");
 	    return 1;
 	}

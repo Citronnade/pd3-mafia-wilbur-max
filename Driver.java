@@ -10,7 +10,7 @@ public class Driver{
     	//Should add a try/catch block
     	int numPlayers = Integer.parseInt(s.next());
     	
-    	game = new Game(numPlayers);
+    	game = new Game();
     	int i = 0;
     	while (i < numPlayers){
     		addPlayer();
@@ -51,6 +51,8 @@ public class Driver{
     }
 
     public static void loopThroughPlayers(){
+   
+
 
     }
     
