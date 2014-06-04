@@ -51,9 +51,12 @@ public class Driver{
     }
 
     public static void loopThroughPlayers(){
-   
-
-
+        String playersstr = "";
+        for (int x = 0; x < game.getPlayers().size();x++){
+            playersstr += game.getPlayers().get(x).getName() + " ";//for the puroose of printing everybody out
+        }
+        playersstr = playersstr.substring(0,playersstr.length()-1);//just to remove the last space
+        System.out.print(playersstr);
     }
     
     public static void main(String args[]){ //perhaps can set up with args[] instead...
