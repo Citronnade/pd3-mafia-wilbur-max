@@ -50,19 +50,21 @@ public class Driver{
     	game.addPlayer(temp);
     }
 
-    public static void loopThroughPlayers(){
+    public static void loopThroughPlayers(){//prints everyone out
         String playersstr = "";
         for (int x = 0; x < game.getPlayers().size();x++){
             playersstr += game.getPlayers().get(x).getName() + " ";//for the puroose of printing everybody out
         }
         playersstr = playersstr.substring(0,playersstr.length()-1);//just to remove the last space
-        System.out.print(playersstr);
+        System.out.println(playersstr);
     }
-    
+
+
     public static void main(String args[]){ //perhaps can set up with args[] instead...
 	startUp();
 	while (1 == 1){ //loop
 	    game.tick();
+        loopThroughPlayers();
 	}
     }
 }
