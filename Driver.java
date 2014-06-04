@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Driver{
+    
     public static Game game;
     
     public static void startUp(){//initial things to do before the game starts
@@ -27,6 +28,7 @@ public class Driver{
     			//+ "[" + str.substring(0,1) + "]"
     			 + " ");
     	}
+	System.out.println();
     	String in = s.next();
     	System.out.print("What is your name? ");
     	String name = s.next();
@@ -46,10 +48,11 @@ public class Driver{
     	}//there's gotta be a better way to do this
 
     	game.addPlayer(temp);
-
-    	
     }
 
+    public static void loopThroughPlayers(){
+
+    }
     
     public static void main(String args[]){ //perhaps can set up with args[] instead...
 	startUp();

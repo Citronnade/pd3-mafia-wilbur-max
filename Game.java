@@ -4,7 +4,7 @@ import java.io.*;
 //in order to set up the game: game will give out a list of all possible roles, have driver print it out and send it back and have game add it.
 
 public class Game{
-    PriorityQueue<Player> players;
+    private PriorityQueue<Player> players;
     public void addPlayer(Player p){
 	players.add(p);
     }
@@ -21,5 +21,13 @@ public class Game{
 	for (Player p: players){
 	    p.act();
 	}
+    }
+
+    public PriorityQueue<Player> getPlayers(){
+        return players;
+    }
+
+    public void setPlayers(PriorityQueue<Player> players){
+        this.players = players;
     }
 }

@@ -21,8 +21,17 @@ public class Cop extends Player {
     }
     
     public int inspect (Player other) {
-    	return 0;
+	if (other.guilty){
+	    System.out.println ("mafia");
+	}
+	else 
+	    System.out.println ("innocent");
+	return 0;
 	//if player is guilty, return guilty else return innocent
+    }
+    
+    public boolean guilty {
+
     }
 
 }
