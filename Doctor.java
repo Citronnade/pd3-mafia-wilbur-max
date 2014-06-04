@@ -5,6 +5,7 @@ public class Doctor extends Player{
 	super();
 	this.name = name;
 	priority = 2;
+	marks = new ArrayList<Mark>();
     }
 
     public int act(){
@@ -22,7 +23,7 @@ public class Doctor extends Player{
     }
 
     public int save(Player other){
-	other.addMark(new Mark(this, "save"));
+	other.addMark(new Mark(this	, "save"));
 	return 1;
     }
 }
