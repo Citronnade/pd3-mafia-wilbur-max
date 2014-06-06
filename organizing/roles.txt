@@ -2,7 +2,9 @@ Townspeople:
 -Villager : Standard, basic Townsperson with ample voting power but not much else (priority 0)
 -Cop : During the night can inspect someone and is given whether that person is a townsperson or a mafioso (priority 2?)
 -Doctor : During the night can choose someone to save (priority 3?)
-
+-Paranoid Cop - always sees guilty
+-Naive Cop - always sees innocent
+-Insane Cop - always sees opposite afilliation of person
 
 Mafia:
 -Regular Mafioso : During the night, discusses who to kill for the night (priority 1)
@@ -16,9 +18,6 @@ To be added:
 -Drunk - blocks roles (town afilliated)
 -Fool - wins if killed
 -Godfather - leader of the mafia, 
--Paranoid Cop - always sees guilty
--Naive Cop - always sees innocent
--Insane Cop - always sees opposite afilliation of person
 -Serial Killer - loner whose objective is to kill everyone
 -Bomb - kills whoever kills him
 -Granny - kills whoever visits her, cannot be killed at night
