@@ -87,27 +87,49 @@ public class Driver{
         System.out.println("Mafia, choose someone to kill tonight");
         System.out.println(allPlayers);
         
-        String in = s.next();
+        String in = "";
+
+        while (!(playerExists(in, players))){
+            System.out.println("Please choose someone in the game.");
+            in = s.next();
+        }
         System.out.println("Mafia, please go to sleep.");
 
+        in = "";
         //Cops
         System.out.println();
         System.out.println("Cops, please wake up.");
         System.out.println("Cops, choose someone to inspect");
         System.out.println(allPlayers);
 
-        in = s.next();
+        while (!(playerExists(in, players))){
+            System.out.println("Please choose someone in the game.");
+            in = s.next();
+        }
         System.out.println("Cops, please go to sleep.");
 
+        in = "";
         //Doctors
         System.out.println();
         System.out.println("Doctors, please wake up.");
         System.out.println("Doctors, choose someone to save tonight");
         System.out.println(allPlayers);
 
-        in = s.next();
+        while (!(playerExists(in, players))){
+            System.out.println("Please choose someone in the game.");
+            in = s.next();
+        }
         System.out.println("Doctors, please go to sleep.");
 
+    }
+
+    public static boolean playerExists(String name, ArrayList<Player> players){
+        for (int x = 0; x <players.size();x++){
+            if (players.get(x).getName().equals(name)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String args[]){ //perhaps can set up with args[] instead...
