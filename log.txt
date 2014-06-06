@@ -2,3 +2,6 @@
 Max: made the log
 Wilbur: changed PriorityQueue of players to ArrayList of players
 implemented looping through players
+
+6-5-14:
+Wilbur: implemented looping through players (continued)
