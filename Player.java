@@ -8,7 +8,7 @@ public abstract class Player{
 
     public abstract int act(); //returns 1 if successful, 0 if successful, -1 if not supported
     // successful is the actual action was successful (not rb'd, etc)
-    public abstract int act(Player other){}; //Println() any necessary info when leaving act() to act(Player) or recursing on act(Player)
+    public abstract int act(Player other); //Println() any necessary info when leaving act() to act(Player) or recursing on act(Player)
 
     public int getPriority(){
 	return priority;

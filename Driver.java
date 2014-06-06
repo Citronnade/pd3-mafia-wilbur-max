@@ -63,25 +63,26 @@ public class Driver{
     }
 
     public static void queryPlayers(String allPlayers){
-	Scanners = new Scanner(System.in);
+	Scanner s = new Scanner(System.in);
         System.out.println();
-        System.out.println("Mafia, please wake up.");
-        System.out.println("Mafia, choose someone to kill tonight");
+        // System.out.println("Mafia, please wake up.");
+        // System.out.println("Mafia, choose someone to kill tonight");
         System.out.println(allPlayers);
+	String in = "";
         
 	ArrayList<Player> players = game.getPlayers();
 	
-	Mafia mafiaVisitor;
+	Mafia mafiaVisitor = new Mafia("I'm going to be gone soon");
 
 	for (Player currentP: players){
 	    System.out.println(currentP.getName() + ", please wake up.");
-	    if (currentP instanceof Mafia && !mafiaWent){
+	    if (currentP instanceof Mafia && !game.mafiaWent){
 		game.mafiaWent = true; //THIS MUST BE RESET EVERY TICK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		mafiaVisitor = currentP;
+		mafiaVisitor = (Mafia) currentP;
 	    }
 
-	    while(player.act() != -1){
-		player.act(); //re-run this until act says we can go on...may need other int return values.
+	    while(currentP.act() != -1){
+		currentP.act(); //re-run this until act says we can go on...may need other int return values.
 		//then player.act(Other) until that returns success.
 	    }
 	    while (!(playerExists(in, players))){
@@ -91,16 +92,16 @@ public class Driver{
 	    
 	    
 	}
-	if (mafiaWent){
-	    System.out.println("Mafia, choose someone to kill.  " + currentP.getName() + " will visit.")
-		while (!(playerExists(in, players))){
-		    System.out.println("Please choose someone in the game.");
-		    in = s.next();
-		}
+	if (game.mafiaWent){
+	    System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit.");
+	    while (!(playerExists(in, players))){
+		System.out.println("Please choose someone in the game.");
+		in = s.next();
+	    }
 	
 	    for (Player target: players){    //find the target.  we can quickselect
 		if (target.getName().equals(in)){
-		    currentP.act(target); //basically puts kill mark on target.
+		    mafiaVisitor.act(target); //basically puts kill mark on target.
 		}
 	    }
 	}
