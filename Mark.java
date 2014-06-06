@@ -2,6 +2,9 @@ public class Mark{
     private Player origin;
     private String type;
 
+    public Mark(String type){
+        this.type = type;
+    }
 
     public Mark(Player origin, String type){
 	this.origin = origin;

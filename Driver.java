@@ -80,6 +80,7 @@ public class Driver{
                                     ArrayList<Player> mafia,
                                     ArrayList<Player> cops,
                                     ArrayList<Player> doctors){//asks everyone to do stuff, night thing
+        //THERE MUST BE A BETTER WAY TO DO THIS
         Scanner s = new Scanner(System.in);
         //Mafia
         System.out.println();
@@ -92,6 +93,11 @@ public class Driver{
         while (!(playerExists(in, players))){
             System.out.println("Please choose someone in the game.");
             in = s.next();
+        }
+        for (int x = 0; x < players.size();x++){   
+            if (players.get(x).getName().equals(in)){
+                players.get(x).addMark(new Mark("mafiadeath"));
+            }
         }
         System.out.println("Mafia, please go to sleep.");
 
@@ -106,6 +112,8 @@ public class Driver{
             System.out.println("Please choose someone in the game.");
             in = s.next();
         }
+        
+
         System.out.println("Cops, please go to sleep.");
 
         in = "";
