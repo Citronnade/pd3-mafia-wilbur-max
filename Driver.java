@@ -50,21 +50,79 @@ public class Driver{
     	game.addPlayer(temp);
     }
 
-    public static void loopThroughPlayers(){//prints everyone out
-        String playersstr = "";
-        for (int x = 0; x < game.getPlayers().size();x++){
-            playersstr += game.getPlayers().get(x).getName() + " ";//for the puroose of printing everybody out
+    public static void loopThroughPlayers(){//prints everyone out and calls queryplayers
+        String playersstr = "";//contains all playernames
+        ArrayList<Player> players = game.getPlayers();
+
+        ArrayList<Player> mafia = new ArrayList<Player>();//to be sent to queryplayers
+        ArrayList<Player> cops = new ArrayList<Player>();
+        ArrayList<Player> doctors = new ArrayList<Player>();
+        for (int x = 0; x < players.size();x++){
+            Player currentP = players.get(x);
+            playersstr += currentP.getName() + " ";//for the puroose of printing everybody out
+            if (currentP instanceof Mafia){
+                mafia.add(currentP);
+            } else if (currentP instanceof Cop){
+                cops.add(currentP);
+            } else if (currentP instanceof Doctor){
+                doctors.add(currentP);
+            } else {}
         }
+
         playersstr = playersstr.substring(0,playersstr.length()-1);//just to remove the last space
         System.out.println(playersstr);
+        queryPlayers(playersstr,players,mafia,cops,doctors);
+
     }
 
+    public static void queryPlayers(String allPlayers,
+                                    ArrayList<Player> players,
+                                    ArrayList<Player> mafia,
+                                    ArrayList<Player> cops,
+                                    ArrayList<Player> doctors){//asks everyone to do stuff, night thing
+        Scanner s = new Scanner(System.in);
+        //Mafia
+        System.out.println();
+        System.out.println("Mafia, please wake up.");
+        System.out.println("Mafia, choose someone to kill tonight");
+        System.out.println(allPlayers);
+        
+        String in = s.next();
+        System.out.println("Mafia, please go to sleep.");
+
+        //Cops
+        System.out.println();
+        System.out.println("Cops, please wake up.");
+        System.out.println("Cops, choose someone to inspect");
+        System.out.println(allPlayers);
+
+        in = s.next();
+        System.out.println("Cops, please go to sleep.");
+
+        //Doctors
+        System.out.println();
+        System.out.println("Doctors, please wake up.");
+        System.out.println("Doctors, choose someone to save tonight");
+        System.out.println(allPlayers);
+
+        in = s.next();
+        System.out.println("Doctors, please go to sleep.");
+
+    }
 
     public static void main(String args[]){ //perhaps can set up with args[] instead...
-	startUp();
+	int night = 1;
+
+    startUp();
 	while (1 == 1){ //loop
 	    game.tick();
+        System.out.println();
+        System.out.println("Night " + night
+            + "\nEverybody go to sleep!");
+        night++;
         loopThroughPlayers();
+        System.out.println();
+        System.out.println("Everybody wake up!");
 	}
     }
 }
