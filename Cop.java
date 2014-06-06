@@ -8,25 +8,28 @@ public class Cop extends Player {
 	marks = new ArrayList <Mark> ();
     }
     
-    public int act() {
-	Player other;
-	other = chooseTarget();
+    public int act() { //not implemented.
+	return -1;
+    }
+    
+    public int act(Player other){
 	if (false) {
 	    return 0;
 	}
 	else {
 	    inspect(other);
-	    return 0;
+	    return 1;
 	}
     }
     
+    
     public int inspect (Player other) {
 	if (other instanceof Mafia){
-	    //System.out.println ("mafia");
+	    System.out.println ("mafia");
 	    return 1;
 	}
 	else 
-	   // System.out.println ("innocent");
+	    System.out.println ("innocent");
 	return 0;
 	//if player is guilty, return guilty else return innocent
     }

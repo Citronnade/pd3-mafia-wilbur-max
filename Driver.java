@@ -50,29 +50,61 @@ public class Driver{
     	game.addPlayer(temp);
     }
 
-    public static void loopThroughPlayers(){//prints everyone out and calls queryplayers
-        String playersstr = "";//contains all playernames
-        ArrayList<Player> players = game.getPlayers();
 
-        ArrayList<Player> mafia = new ArrayList<Player>();//to be sent to queryplayers
-        ArrayList<Player> cops = new ArrayList<Player>();
-        ArrayList<Player> doctors = new ArrayList<Player>();
-        for (int x = 0; x < players.size();x++){
-            Player currentP = players.get(x);
-            playersstr += currentP.getName() + " ";//for the puroose of printing everybody out
-            if (currentP instanceof Mafia){
-                mafia.add(currentP);
-            } else if (currentP instanceof Cop){
-                cops.add(currentP);
-            } else if (currentP instanceof Doctor){
-                doctors.add(currentP);
-            } else {}
-        }
 
-        playersstr = playersstr.substring(0,playersstr.length()-1);//just to remove the last space
-        System.out.println(playersstr);
-        queryPlayers(playersstr,players,mafia,cops,doctors);
+    public static void loopThroughPlayers(){
+	String playersstr = ""; //contains all playernames
+	ArrayList<Player> players = game.getPlayers(); //assuming this is sorted
+	for (Player currentP: players){
+	    playersstr += currentP.getName();
+	}
+	playersstr = playersstr.substring(0,playersstr.length()-1);//just to remove the last space
+	System.out.println(playersstr);
+    }
 
+    public static void queryPlayers(String allPlayers){
+	Scanners = new Scanner(System.in);
+        System.out.println();
+        System.out.println("Mafia, please wake up.");
+        System.out.println("Mafia, choose someone to kill tonight");
+        System.out.println(allPlayers);
+        
+	ArrayList<Player> players = game.getPlayers();
+	
+	Mafia mafiaVisitor;
+
+	for (Player currentP: players){
+	    System.out.println(currentP.getName() + ", please wake up.");
+	    if (currentP instanceof Mafia && !mafiaWent){
+		game.mafiaWent = true; //THIS MUST BE RESET EVERY TICK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		mafiaVisitor = currentP;
+	    }
+
+	    while(player.act() != -1){
+		player.act(); //re-run this until act says we can go on...may need other int return values.
+		//then player.act(Other) until that returns success.
+	    }
+	    while (!(playerExists(in, players))){
+		System.out.println("Please choose someone in the game.");
+		in = s.next();
+	    }
+	    
+	    
+	}
+	if (mafiaWent){
+	    System.out.println("Mafia, choose someone to kill.  " + currentP.getName() + " will visit.")
+		while (!(playerExists(in, players))){
+		    System.out.println("Please choose someone in the game.");
+		    in = s.next();
+		}
+	
+	    for (Player target: players){    //find the target.  we can quickselect
+		if (target.getName().equals(in)){
+		    currentP.act(target); //basically puts kill mark on target.
+		}
+	    }
+	}
+	
     }
 
     public static void queryPlayers(String allPlayers,

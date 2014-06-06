@@ -5,6 +5,7 @@ import java.io.*;
 
 public class Game{
     private ArrayList<Player> players;
+    protected static boolean mafiaWent;
     public void addPlayer(Player p){
 	players.add(p);
     }
