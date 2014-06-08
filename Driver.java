@@ -107,7 +107,7 @@ public class Driver{
 	}
 	
     }
-
+    /*
     public static void queryPlayers(String allPlayers,
                                     ArrayList<Player> players,
                                     ArrayList<Player> mafia,
@@ -163,6 +163,7 @@ public class Driver{
         System.out.println("Doctors, please go to sleep.");
 
     }
+    */
 
     public static boolean playerExists(String name, ArrayList<Player> players){
         for (int x = 0; x <players.size();x++){
@@ -176,16 +177,18 @@ public class Driver{
     public static void main(String args[]){ //perhaps can set up with args[] instead...
 	int night = 1;
 
-    startUp();
+	startUp();
 	while (1 == 1){ //loop
 	    game.tick();
-        System.out.println();
-        System.out.println("Night " + night
-            + "\nEverybody go to sleep!");
-        night++;
-        loopThroughPlayers();
-        System.out.println();
-        System.out.println("Everybody wake up!");
+	    System.out.println();
+	    System.out.println("Night " + night
+			       + "\nEverybody go to sleep!");
+	  
+	    night++;
+	    loopThroughPlayers();
+	    queryPlayers("I don't think we should have it take a string");
+	    System.out.println();
+	    System.out.println("Everybody wake up!");
 	}
     }
 }
