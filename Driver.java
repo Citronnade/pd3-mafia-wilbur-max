@@ -61,7 +61,16 @@ public class Driver{
     	} else if (in.equals("mafia") || in.equals("m")){
     		temp = new Mafia(name);
     	} else if (in.equals("cop") || in.equals("c")){
-    		temp = new Cop(name);
+            double rand = Math.random();
+            if (rand < 0.25){
+                temp = new Cop(name);
+            } else if (rand < 0.5){
+                temp = new NaiveCop(name);
+            } else if (rand < 0.75){
+                temp = new ParanoidCop(name);
+            } else {
+                temp = new InsaneCop(name);
+            }
     	} else if (in.equals("doctor") || in.equals("d")){
     		temp = new Doctor(name);
     	} else {
@@ -79,6 +88,8 @@ public class Driver{
         }
         return true;
     }
+
+
 
     public static void loopThroughPlayers(){
 	String playersstr = ""; //contains all playernames
@@ -103,7 +114,9 @@ public class Driver{
 	for (Player currentP: players){
 	    
          if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
-            System.out.println(currentP.getName() + ", please wake up.");
+            System.out.println(currentP.getName() + 
+                "(" + currentP.getClass().getName() + ")"
+                + ", please wake up.");
             System.out.print(currentP.getActionText());
             
             in = s.next();

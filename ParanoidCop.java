@@ -7,7 +7,7 @@ public class ParanoidCop extends Cop{
 	}
 
 	public int inspect(Player other){
-		//System.out.println("mafia");
+		System.out.println (other.getName() + " is associated with the mafia.");
 		return 1;
 	}
 
