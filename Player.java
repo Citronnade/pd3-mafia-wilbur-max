@@ -22,6 +22,14 @@ public abstract class Player{
 	marks.add(m);
     }
 
+    public ArrayList<Mark> getMarks(){
+        return marks;
+    }
+
+    public void clearMarks(){
+        marks = new ArrayList<Mark>();
+    }
+
     public String toString(){
         return name + " " + marks;
     }

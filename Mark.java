@@ -20,6 +20,6 @@ public class Mark{
     }
 
     public String toString(){
-        return origin + " " + type;
+        return origin.getName() + " " + type;
     }
 }

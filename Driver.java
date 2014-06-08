@@ -168,7 +168,7 @@ public class Driver{
 
 	startUp();
 	while (1 == 1){ //loop
-	    game.tick();
+	    //game.tick();
 	    System.out.println();
 	    System.out.println("Night " + night
 			       + "\nEverybody go to sleep!");
@@ -182,6 +182,13 @@ public class Driver{
         System.out.println();
         printAll();//test
         System.out.println();
+
+        game.processMarks();
+
+        System.out.println();
+        printAll();//test
+        System.out.println();
+
 	}
     }
 }

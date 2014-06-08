@@ -36,4 +36,28 @@ public class Game{
         }
         return null;
     }
+
+    public void processMarks(){//goes through the marks of each player to see what to do with them
+        for (int x = 0; x < players.size(); x++){
+            Player currentP = players.get(x);
+            ArrayList<Mark> marks = currentP.getMarks();
+
+            boolean dead = false, saved = false; 
+
+            for (Mark m : marks){
+                if (m.getType().equals("death")){
+                    dead = true;
+                } else if (m.getType().equals("save")){
+                    saved = true;
+                }
+            }
+
+            if (dead && (!saved)){
+                players.remove(x); //he's dead, out of the game
+                x--;
+            } else {
+                currentP.clearMarks();//clears the arraylist of marks
+            }
+        }
+    }
 }
