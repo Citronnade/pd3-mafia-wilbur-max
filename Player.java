@@ -6,6 +6,8 @@ public abstract class Player{
     protected String name;
     protected ArrayList<Mark> marks; //marks will be in order of priority because they're placed in order of priority
 
+    protected String actionText; //prompting text 
+
     public abstract int act(); //returns 1 if successful, 0 if successful, -1 if not supported
     // successful is the actual action was successful (not rb'd, etc)
     public abstract int act(Player other); //Println() any necessary info when leaving act() to act(Player) or recursing on act(Player)
@@ -28,6 +30,10 @@ public abstract class Player{
 
     public void clearMarks(){
         marks = new ArrayList<Mark>();
+    }
+
+    public String getActionText(){
+        return actionText;
     }
 
     public String toString(){

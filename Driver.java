@@ -104,6 +104,7 @@ public class Driver{
 	    
          if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
             System.out.println(currentP.getName() + ", please wake up.");
+            System.out.print(currentP.getActionText());
             
             in = s.next();
           

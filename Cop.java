@@ -6,6 +6,7 @@ public class Cop extends Player {
 	this.name = name;
 	//not sure what else to put here
 	marks = new ArrayList <Mark> ();
+	actionText = "Please choose someone to inspect: ";
     }
     
     public int act() { //not implemented.
@@ -13,6 +14,7 @@ public class Cop extends Player {
     }
     
     public int act(Player other){
+    	
 	if (false) {
 	    return 0;
 	}
@@ -25,11 +27,11 @@ public class Cop extends Player {
     
     public int inspect (Player other) {
 	if (other instanceof Mafia){
-	    System.out.println ("mafia");
+	    System.out.println (other.getName() + " is associated with the mafia.");
 	    return 1;
 	}
 	else 
-	    System.out.println ("innocent");
+	    System.out.println (other.getName() + " is innocent.");
 	return 0;
 	//if player is guilty, return guilty else return innocent
     }

@@ -6,6 +6,7 @@ public class Doctor extends Player{
 	this.name = name;
 	priority = 2;
 	marks = new ArrayList<Mark>();
+	actionText = "Please choose someone to save: ";
     }
 
     public int act(){
