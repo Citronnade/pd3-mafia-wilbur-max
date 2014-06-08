@@ -7,14 +7,29 @@ public class Driver{
     public static void startUp(){//initial things to do before the game starts
     	System.out.print("Welcome to Mafia! How many players? ");
     	Scanner s = new Scanner(System.in);
-    	//Should add a try/catch block
-    	int numPlayers = Integer.parseInt(s.next());
+        
+        String in = "";
+        int numPlayers = 0;
+        while (numPlayers <= 0){
+            in = s.next();
+            try {
+               numPlayers = Integer.parseInt(in);
+               if (numPlayers <= 0){
+                    System.out.print("Please input a positive integer: ");
+               }
+            } catch (NumberFormatException E){
+                System.out.print("Please input an integer: ");
+            }
+        }
     	
+    	System.out.println();
     	game = new Game();
     	int i = 0;
     	while (i < numPlayers){
+            System.out.println("Player " + (i + 1));
     		addPlayer();
     		i++;
+            System.out.println();
     	}
     }
 
@@ -28,20 +43,21 @@ public class Driver{
     			//+ "[" + str.substring(0,1) + "]"
     			 + " ");
     	}
-	System.out.println();
+    	System.out.println();
     	String in = s.next();
+        in = in.toLowerCase();
     	System.out.print("What is your name? ");
     	String name = s.next();
     	Player temp = null;
 
-    	
-    	if (in.equals("Villager")){
+
+    	if (in.equals("villager") || in.equals("v")){
     		temp = new Villager(name);
-    	} else if (in.equals("Mafia")){
+    	} else if (in.equals("mafia") || in.equals("m")){
     		temp = new Mafia(name);
-    	} else if (in.equals("Cop")){
+    	} else if (in.equals("cop") || in.equals("c")){
     		temp = new Cop(name);
-    	} else if (in.equals("Doctor")){
+    	} else if (in.equals("doctor") || in.equals("d")){
     		temp = new Doctor(name);
     	} else {
     		temp = new Villager(name);//temporary final assignment
@@ -65,9 +81,7 @@ public class Driver{
     public static void queryPlayers(String allPlayers){
 	Scanner s = new Scanner(System.in);
     System.out.println();
-        // System.out.println("Mafia, please wake up.");
-        // System.out.println("Mafia, choose someone to kill tonight");
-        //System.out.println(allPlayers);
+
 	String in = "";
         
 	ArrayList<Player> players = game.getPlayers();
@@ -80,12 +94,15 @@ public class Driver{
             System.out.println(currentP.getName() + ", please wake up.");
             
             in = s.next();
+          
             while (!(playerExists(in, players))){
                 System.out.println("Please choose someone in the game.");
                 in = s.next();
             }
+          
             currentP.act(game.getPlayerByName(in));
-        //then player.act(Other) until that returns success.
+            System.out.println(currentP.getName() + ", please go to sleep.");
+            System.out.println();
         }
 
 
