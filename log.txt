@@ -11,3 +11,5 @@ Wilbur: updated readme and roles
 
 6-8-14:
 Wilbur: added some functionality to the marks, made things work-ish
+Wilbur: added functionality to the existing marks, people die and can be saved now, fixed an issue with the doctor
+creating an infinite loop and stack overflow error when he was being printed out
