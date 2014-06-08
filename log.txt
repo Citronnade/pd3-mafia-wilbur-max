@@ -8,3 +8,6 @@ Wilbur: implemented looping through players (continued)
 
 6-6-14:
 Wilbur: updated readme and roles
+
+6-8-14:
+Wilbur: added some functionality to the marks, made things work-ish
