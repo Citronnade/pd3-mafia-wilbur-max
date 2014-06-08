@@ -10,7 +10,8 @@ Wilbur: implemented looping through players (continued)
 Wilbur: updated readme and roles
 
 6-8-14:
-Wilbur: added some functionality to the marks, made things work-ish
-Wilbur: added functionality to the existing marks, people die and can be saved now, fixed an issue with the doctor
+Wilbur (5:30 PM): added some functionality to the marks, made things work-ish
+Wilbur (6:22 PM): added functionality to the existing marks, people die and can be saved now, fixed an issue with the doctor
 creating an infinite loop and stack overflow error when he was being printed out
-Wilbur: added prompting texts for the night roles and added the results that are printed out as a result of the night
+Wilbur (7:00 PM): added prompting texts for the night roles and added the results that are printed out as a result of the night
+Wilbur (7:37 PM): added functionality to the different kinds of cops 
