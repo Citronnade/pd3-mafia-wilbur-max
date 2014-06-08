@@ -18,7 +18,7 @@ public class Game{
     players = new ArrayList<Player>();
     }
 
-    public  void tick(){
+    public void tick(){
 	for (Player p: players){
 	    p.act();
 	}
@@ -26,5 +26,14 @@ public class Game{
 
     public ArrayList<Player> getPlayers(){
         return players;
+    }
+
+    public Player getPlayerByName(String name){
+        for (int x = 0; x < players.size();x++){
+            if (players.get(x).getName().equals(name)){
+                return players.get(x);
+            }
+        }
+        return null;
     }
 }

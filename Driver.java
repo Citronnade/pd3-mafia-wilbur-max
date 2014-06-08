@@ -5,7 +5,7 @@ public class Driver{
     public static Game game;
     
     public static void startUp(){//initial things to do before the game starts
-    	System.out.print("Welcome to Mafia! How many players?");
+    	System.out.print("Welcome to Mafia! How many players? ");
     	Scanner s = new Scanner(System.in);
     	//Should add a try/catch block
     	int numPlayers = Integer.parseInt(s.next());
@@ -56,7 +56,7 @@ public class Driver{
 	String playersstr = ""; //contains all playernames
 	ArrayList<Player> players = game.getPlayers(); //assuming this is sorted
 	for (Player currentP: players){
-	    playersstr += currentP.getName();
+	    playersstr += currentP.getName() + " ";
 	}
 	playersstr = playersstr.substring(0,playersstr.length()-1);//just to remove the last space
 	System.out.println(playersstr);
@@ -64,10 +64,10 @@ public class Driver{
 
     public static void queryPlayers(String allPlayers){
 	Scanner s = new Scanner(System.in);
-        System.out.println();
+    System.out.println();
         // System.out.println("Mafia, please wake up.");
         // System.out.println("Mafia, choose someone to kill tonight");
-        System.out.println(allPlayers);
+        //System.out.println(allPlayers);
 	String in = "";
         
 	ArrayList<Player> players = game.getPlayers();
@@ -75,25 +75,34 @@ public class Driver{
 	Mafia mafiaVisitor = new Mafia("I'm going to be gone soon");
 
 	for (Player currentP: players){
-	    System.out.println(currentP.getName() + ", please wake up.");
-	    if (currentP instanceof Mafia && !game.mafiaWent){
-		game.mafiaWent = true; //THIS MUST BE RESET EVERY TICK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    
+         if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
+            System.out.println(currentP.getName() + ", please wake up.");
+            
+            in = s.next();
+            while (!(playerExists(in, players))){
+                System.out.println("Please choose someone in the game.");
+                in = s.next();
+            }
+            currentP.act(game.getPlayerByName(in));
+        //then player.act(Other) until that returns success.
+        }
+
+
+        if (currentP instanceof Mafia && !game.mafiaWent){
+		game.mafiaWent = true; //must be reset every tick
 		mafiaVisitor = (Mafia) currentP;
 	    }
 
-	    while(currentP.act() != -1){
-		currentP.act(); //re-run this until act says we can go on...may need other int return values.
-		//then player.act(Other) until that returns success.
-	    }
-	    while (!(playerExists(in, players))){
-		System.out.println("Please choose someone in the game.");
-		in = s.next();
-	    }
 	    
-	    
+	    in = "";
 	}
+    //mafia night action
 	if (game.mafiaWent){
 	    System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit.");
+
+        in = s.next();
+
 	    while (!(playerExists(in, players))){
 		System.out.println("Please choose someone in the game.");
 		in = s.next();
@@ -104,10 +113,52 @@ public class Driver{
 		    mafiaVisitor.act(target); //basically puts kill mark on target.
 		}
 	    }
+        game.mafiaWent = false;
 	}
 	
     }
-    /*
+
+    public static void printAll(){// test function
+        for (Player p : game.getPlayers()){
+            System.out.println(p);
+        }
+    }
+    
+
+    public static boolean playerExists(String name, ArrayList<Player> players){
+        for (int x = 0; x <players.size();x++){
+            if (players.get(x).getName().equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String args[]){ //perhaps can set up with args[] instead...
+	int night = 1;
+
+	startUp();
+	while (1 == 1){ //loop
+	    game.tick();
+	    System.out.println();
+	    System.out.println("Night " + night
+			       + "\nEverybody go to sleep!");
+	  
+	    night++;
+	    loopThroughPlayers();
+	    queryPlayers("");
+	    System.out.println();
+	    System.out.println("Everybody wake up!");
+
+        System.out.println();
+        printAll();//test
+        System.out.println();
+	}
+    }
+}
+
+//UNUSED CODE
+/*
     public static void queryPlayers(String allPlayers,
                                     ArrayList<Player> players,
                                     ArrayList<Player> mafia,
@@ -164,31 +215,3 @@ public class Driver{
 
     }
     */
-
-    public static boolean playerExists(String name, ArrayList<Player> players){
-        for (int x = 0; x <players.size();x++){
-            if (players.get(x).getName().equals(name)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static void main(String args[]){ //perhaps can set up with args[] instead...
-	int night = 1;
-
-	startUp();
-	while (1 == 1){ //loop
-	    game.tick();
-	    System.out.println();
-	    System.out.println("Night " + night
-			       + "\nEverybody go to sleep!");
-	  
-	    night++;
-	    loopThroughPlayers();
-	    queryPlayers("I don't think we should have it take a string");
-	    System.out.println();
-	    System.out.println("Everybody wake up!");
-	}
-    }
-}

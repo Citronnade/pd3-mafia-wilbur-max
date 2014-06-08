@@ -18,4 +18,8 @@ public class Mark{
     public String getType(){
 	return type;
     }
+
+    public String toString(){
+        return origin + " " + type;
+    }
 }

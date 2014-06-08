@@ -22,4 +22,8 @@ public abstract class Player{
 	marks.add(m);
     }
 
+    public String toString(){
+        return name + " " + marks;
+    }
+
 }

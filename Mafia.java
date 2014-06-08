@@ -10,7 +10,7 @@ public class Mafia extends Player{ //maybe mafia as a group should get a priorit
     }
 
     public int act(){
-	return 0;
+	return -1;
     }
 
     public int act(Player other){

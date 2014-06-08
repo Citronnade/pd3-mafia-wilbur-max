@@ -9,7 +9,7 @@ public class Villager extends Player{//default villager that doesn't do anything
     }
 
     public int act(){
-	return 1;
+	return -1;
     }
 
     public int act(Player other){ //idk i guess villagers sometimes go play poker with each other at night but this isn't it

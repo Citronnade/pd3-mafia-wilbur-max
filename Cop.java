@@ -9,7 +9,7 @@ public class Cop extends Player {
     }
     
     public int act() { //not implemented.
-	return -1;
+	return 0;
     }
     
     public int act(Player other){
