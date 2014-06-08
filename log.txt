@@ -13,3 +13,4 @@ Wilbur: updated readme and roles
 Wilbur: added some functionality to the marks, made things work-ish
 Wilbur: added functionality to the existing marks, people die and can be saved now, fixed an issue with the doctor
 creating an infinite loop and stack overflow error when he was being printed out
+Wilbur: added prompting texts for the night roles and added the results that are printed out as a result of the night
