@@ -48,6 +48,11 @@ public class Driver{
         in = in.toLowerCase();
     	System.out.print("What is your name? ");
     	String name = s.next();
+        while (!(validateName(name))){
+            System.out.print("That name has already been chosen. Please choose another name: ");
+            name = s.next();
+        }
+
     	Player temp = null;
 
 
@@ -66,7 +71,14 @@ public class Driver{
     	game.addPlayer(temp);
     }
 
-
+    public static boolean validateName(String name){//to make sure nobody has the same name
+        for (Player p : game.getPlayers()){
+            if (name.equals(p.getName())){//muy mal
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void loopThroughPlayers(){
 	String playersstr = ""; //contains all playernames
