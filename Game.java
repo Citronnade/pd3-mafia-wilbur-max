@@ -37,7 +37,8 @@ public class Game{
         return null;
     }
 
-    public void processMarks(){//goes through the marks of each player to see what to do with them
+    public String processMarks(){//goes through the marks of each player to see what to do with them
+        String results = "";
         for (int x = 0; x < players.size(); x++){
             Player currentP = players.get(x);
             ArrayList<Mark> marks = currentP.getMarks();
@@ -55,9 +56,16 @@ public class Game{
             if (dead && (!saved)){
                 players.remove(x); //he's dead, out of the game
                 x--;
+                results += currentP.getName() + " has died.";
             } else {
                 currentP.clearMarks();//clears the arraylist of marks
             }
         }
+
+        if (results.equals("")){
+            results = "Nothing happened this night.";
+        }
+
+        return results;
     }
 }

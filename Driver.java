@@ -184,7 +184,7 @@ public class Driver{
         printAll();//test
         System.out.println();
 
-        game.processMarks();
+        System.out.println(game.processMarks());
 
         System.out.println();
         printAll();//test
