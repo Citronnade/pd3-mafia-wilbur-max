@@ -15,3 +15,4 @@ public class Bomb extends Player{
     public int act(Player other){//sits around waiting for someone to blow up
 	return -1;
     }
+}
