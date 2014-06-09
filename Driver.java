@@ -34,7 +34,7 @@ public class Driver{
     }
 
     public static void addPlayer(){//temporary thing for testing purposes
-    	String[] types = {"villager","mafia","cop","doctor","bomb","drunk","vigilante","granny","fool"};
+    	String[] types = {"villager","mafia","cop","doctor","bomb","drunk","vigilante","granny","fool","hooker","cerealkiller"};
 
     	Scanner s = new Scanner(System.in);
     	System.out.println("What kind of player would you like to be? ");
@@ -91,6 +91,12 @@ public class Driver{
 	}
 	else if (in.equals("fool")) {
 	    temp = new Fool (name);
+	}
+	else if (in.equals("hooker")) {
+	    temp = new Hooker (name);
+	}
+	else if (in.equals("cerealkiller")) {
+	    temp = new CerealKiller (name);
 	}
 	else {
     		temp = new Villager(name);
