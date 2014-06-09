@@ -9,10 +9,17 @@ public class Bomb extends Player{
     }
 
     public int act(){
+	for (Mark mark: marks){
+	    if (mark.getType() = "death"){
+		act(mark.getOrigin());
+		return 1;
+	    }
+	}
 	return -1;
     }
 
     public int act(Player other){//sits around waiting for someone to blow up
-	return -1;
+	other.addMark(new Mark(this, "death"));
+	return 1;
     }
 }
