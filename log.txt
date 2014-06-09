@@ -22,3 +22,4 @@ Vincent: added a bunch of the new player class files. Drunk and Hooker don't hav
 Vincent: started a checkWin function to check at teh end of each night whether a side has won or not
 Max: Added roleblocking functionality to all characters
 Max: Also made granny do stuff
+Wilbur: Added daytime
