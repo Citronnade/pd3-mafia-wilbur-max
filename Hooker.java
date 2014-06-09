@@ -5,6 +5,7 @@ public class Hooker extends Player{
     //should we use static initialization blocks for this kind of stuff?
     public Hooker(String name){
 	this.name = name;
+	priority = 3;
 	marks = new ArrayList<Mark>();
     }
 
