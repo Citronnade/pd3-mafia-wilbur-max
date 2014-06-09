@@ -5,6 +5,7 @@ public class Vigilante extends Player{
     //should we use static initialization blocks for this kind of stuff?
     public Vigilante(String name){
 	this.name = name;
+	priority = 1;
 	marks = new ArrayList<Mark>();
     }
 
