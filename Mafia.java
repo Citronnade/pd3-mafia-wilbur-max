@@ -25,6 +25,11 @@ public class Mafia extends Player{ //maybe mafia as a group should get a priorit
     }
 
     public int kill(Player other){ //this can return some interesting information
+	for (Mark mark: marks){
+	    if (mark.getType() == "block"){
+		return -1; //mafia are weird since they have meetings.  But this'll work.
+	    }
+	}
 	other.addMark(new Mark(this, "death"));
 	return 1;
     }
