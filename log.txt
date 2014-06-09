@@ -23,3 +23,4 @@ Vincent: started a checkWin function to check at teh end of each night whether a
 Max: Added roleblocking functionality to all characters
 Max: Also made granny do stuff
 Wilbur: Added daytime
+Vincent: Changed priorities
