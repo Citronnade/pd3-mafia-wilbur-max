@@ -14,9 +14,9 @@ public class Granny extends Player{
 	    victims.add(mark.getOrigin());
 	}
 	for (Player victim: victims){
-	    victim.addMark(this, "death");
+	    victim.addMark(new Mark(this, "death"));
 	}
-	this.addMark(this, "save");
+	this.addMark(new Mark(this, "save"));
 	return 1; //don't go to act(other);
     }
 

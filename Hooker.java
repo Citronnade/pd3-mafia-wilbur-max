@@ -22,6 +22,7 @@ public class Hooker extends Player{
     }
     public int block(Player other){
 	other.addMark(new Mark(this, "block"));
+	return 1;
     }
 
 
