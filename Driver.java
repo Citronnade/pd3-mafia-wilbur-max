@@ -34,7 +34,7 @@ public class Driver{
     }
 
     public static void addPlayer(){//temporary thing for testing purposes
-    	String[] types = {"Villager","Mafia","Cop","Doctor"};
+    	String[] types = {"villager","mafia","cop","doctor","bomb","drunk","vigilante","granny","fool"};
 
     	Scanner s = new Scanner(System.in);
     	System.out.println("What kind of player would you like to be? ");
@@ -58,24 +58,45 @@ public class Driver{
 
     	if (in.equals("villager") || in.equals("v")){
     		temp = new Villager(name);
-    	} else if (in.equals("mafia") || in.equals("m")){
+    	} 
+	else if (in.equals("mafia") || in.equals("m")){
     		temp = new Mafia(name);
-    	} else if (in.equals("cop") || in.equals("c")){
+    	} 
+	else if (in.equals("cop") || in.equals("c")){
             double rand = Math.random();
             if (rand < 0.25){
                 temp = new Cop(name);
-            } else if (rand < 0.5){
+            } 
+	    else if (rand < 0.5){
                 temp = new NaiveCop(name);
-            } else if (rand < 0.75){
+            } 
+	    else if (rand < 0.75){
                 temp = new ParanoidCop(name);
-            } else {
+            } 
+	    else {
                 temp = new InsaneCop(name);
             }
-    	} else if (in.equals("doctor") || in.equals("d")){
-    		temp = new Doctor(name);
-    	} else {
-    		temp = new Villager(name);//temporary final assignment
-    	}//there's gotta be a better way to do this
+    	} 
+	else if (in.equals("doctor") || in.equals("d")){
+	    temp = new Doctor(name);
+    	} 
+	else if (in.equals("bomb")) {
+	    temp = new Bomb (name);
+	}
+	else if (in.equals("vigilante")) {
+	    temp = new Vigilante (name);
+	}
+	else if (in.equals("granny")) {
+	    temp = new Granny (name);
+	}
+	else if (in.equals("fool")) {
+	    temp = new Fool (name);
+	}
+	else {
+    		temp = new Villager(name);
+    	}
+	//temporary final assignment
+	//there's gotta be a better way to do this
 
     	game.addPlayer(temp);
     }
@@ -177,6 +198,7 @@ public class Driver{
         return false;
     }
 
+
     public static void main(String args[]){ //perhaps can set up with args[] instead...
 	int night = 1;
 
@@ -206,6 +228,7 @@ public class Driver{
 	}
     }
 }
+ 
 
 //UNUSED CODE
 /*
