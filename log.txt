@@ -18,4 +18,5 @@ Wilbur (7:37 PM): added functionality to the different kinds of cops
 
 6-9-14
 Vincent: added the special players to Driver
-Vincent: added a bunch of the new player class files
+Vincent: added a bunch of the new player class files. Drunk and Hooker don't have implementations yet
+Vincent: started a checkWin function to check at teh end of each night whether a side has won or not
