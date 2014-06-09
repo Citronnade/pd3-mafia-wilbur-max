@@ -82,7 +82,9 @@ public class Driver{
     	} 
 	else if (in.equals("bomb")) {
 	    temp = new Bomb (name);
-	}
+	} else if (in.equals("drunk")){
+        temp = new Drunk(name);
+    }
 	else if (in.equals("vigilante")) {
 	    temp = new Vigilante (name);
 	}
