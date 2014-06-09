@@ -12,6 +12,6 @@ public class Bomb extends Player{
 	return -1;
     }
 
-    public int act(Player other){
+    public int act(Player other){//sits around waiting for someone to blow up
 	return -1;
     }
