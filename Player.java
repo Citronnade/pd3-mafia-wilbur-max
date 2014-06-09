@@ -40,4 +40,13 @@ public abstract class Player{
         return name + " " + marks;
     }
 
+    public boolean isBlocked(){
+    	for (Mark mark: marks){
+	    if (mark.getOrigin() == "block"){
+		return true;;
+	    }
+	}
+	return false;
+    }
+
 }

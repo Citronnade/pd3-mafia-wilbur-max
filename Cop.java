@@ -14,14 +14,11 @@ public class Cop extends Player {
     }
     
     public int act(Player other){
-    	
-	if (false) {
-	    return 0;
+	if (isBlocked()){
+	    return -1;
 	}
-	else {
-	    inspect(other);
-	    return 1;
-	}
+	inspect(other);
+	return 1;
     }
     
     
