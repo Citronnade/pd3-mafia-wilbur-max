@@ -20,3 +20,5 @@ Wilbur (7:37 PM): added functionality to the different kinds of cops
 Vincent: added the special players to Driver
 Vincent: added a bunch of the new player class files. Drunk and Hooker don't have implementations yet
 Vincent: started a checkWin function to check at teh end of each night whether a side has won or not
+Max: Added roleblocking functionality to all characters
+Max: Also made granny do stuff
