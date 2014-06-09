@@ -9,7 +9,15 @@ public class Granny extends Player{
     }
 
     public int act(){
-	return -1;
+	ArrayList<Player> victims = new ArrayList<Player>();
+	for (Mark mark: marks){
+	    victims.add(mark.getOrigin());
+	}
+	for (Player victim: victims){
+	    victim.addMark(this, "death");
+	}
+	this.addMark(this, "save");
+	return 1; //don't go to act(other);
     }
 
     public int act(Player other){//just waits silently for her victims

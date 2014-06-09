@@ -14,7 +14,7 @@ public class Vigilante extends Player{
     }
 
     public int act(Player other){
-	if (false){
+	if (isBlocked()){
 	    return 0;
 	}
 	else{

@@ -5,7 +5,7 @@ public class Drunk extends Player{
     //should we use static initialization blocks for this kind of stuff?
     public Drunk(String name){
 	this.name = name;
-	priority = 3;
+	priority = 4; //higher than hooker
 	marks = new ArrayList<Mark>();
     }
 
@@ -14,8 +14,14 @@ public class Drunk extends Player{
     }
 
     public int act(Player other){
-	//not sure how to implement this
+	if (isBlocked()){
+	    return -1;
+	}
+	block(other);
 	return -1;
+    }
+    public int block(Player other){
+	other.addMark(new Mark(this, "block"));
     }
 
 }
