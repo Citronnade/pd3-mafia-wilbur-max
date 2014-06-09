@@ -116,8 +116,6 @@ public class Driver{
         return true;
     }
 
-
-
     public static void loopThroughPlayers(){
 	String playersstr = ""; //contains all playernames
 	ArrayList<Player> players = game.getPlayers(); //assuming this is sorted
