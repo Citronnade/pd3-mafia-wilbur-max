@@ -160,7 +160,7 @@ public class Driver{
         if (currentP instanceof Mafia && !game.mafiaWent){
 		game.mafiaWent = true; //must be reset every tick
 		mafiaVisitor = (Mafia) currentP;
-	    }
+	}
 
 	    
 	    in = "";
@@ -175,7 +175,12 @@ public class Driver{
 		System.out.println("Please choose someone in the game.");
 		in = s.next();
 	    }
-	
+	    for (Mark mark: mafiaVisitor.marks){
+		if (mark.getType() == "block"){
+		    game.mafiaWent = false;
+		    return; //mafia are weird since they have meetings.  But this'll work.
+		}
+	    }
 	    for (Player target: players){    //find the target.  we can quickselect
 		if (target.getName().equals(in)){
 		    mafiaVisitor.act(target); //basically puts kill mark on target.

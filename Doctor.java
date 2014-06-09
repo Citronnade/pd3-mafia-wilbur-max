@@ -14,13 +14,14 @@ public class Doctor extends Player{
     }
 
     public int act(Player other){
-	if (false){
-	    return 0;
+	for(Mark mark: marks){
+	    if (mark.getType() == "block"){
+		return -1;
+	    }
 	}
-	else{
-	    save(other);
-	    return 1;
-	}
+	save(other);
+	return 1;
+	
     }
 
     public int save(Player other){

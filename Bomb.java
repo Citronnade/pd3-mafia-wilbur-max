@@ -10,7 +10,7 @@ public class Bomb extends Player{
 
     public int act(){
 	for (Mark mark: marks){
-	    if (mark.getType() = "death"){
+	    if (mark.getType() == "death"){
 		act(mark.getOrigin());
 		return 1;
 	    }
