@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Fool extends Player{ //maybe mafia as a group should get a priority as well...
+public class Drunk extends Player{ 
 
     //should we use static initialization blocks for this kind of stuff?
     public Drunk(String name){
@@ -12,7 +12,8 @@ public class Fool extends Player{ //maybe mafia as a group should get a priority
 	return -1;
     }
 
-    public int act(Player other){//sorta like the bomb, just waits for someone to kill them
+    public int act(Player other){
+	//not sure how to implement this
 	return -1;
     }
 
