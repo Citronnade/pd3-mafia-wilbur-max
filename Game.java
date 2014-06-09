@@ -5,7 +5,9 @@ import java.io.*;
 
 public class Game{
     private ArrayList<Player> players;
+
     protected static boolean mafiaWent;
+
     public void addPlayer(Player p){
 	players.add(p);
     }
@@ -35,6 +37,15 @@ public class Game{
             }
         }
         return null;
+    }
+
+    public void removePlayer(String name){
+        for (int x = 0; x < players.size();x++){
+            if (players.get(x).getName().equals(name)){
+                players.remove(x);
+                return;
+            }
+        }
     }
 
     public String processMarks(){//goes through the marks of each player to see what to do with them
