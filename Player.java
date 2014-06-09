@@ -43,7 +43,7 @@ public abstract class Player{
     public boolean isBlocked(){
     	for (Mark mark: marks){
 	    if (mark.getType() == "block"){
-		return true;;
+		return true;
 	    }
 	}
 	return false;
