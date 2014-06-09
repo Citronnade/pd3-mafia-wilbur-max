@@ -15,3 +15,7 @@ Wilbur (6:22 PM): added functionality to the existing marks, people die and can 
 creating an infinite loop and stack overflow error when he was being printed out
 Wilbur (7:00 PM): added prompting texts for the night roles and added the results that are printed out as a result of the night
 Wilbur (7:37 PM): added functionality to the different kinds of cops 
+
+6-9-14
+Vincent: added the special players to Driver
+Vincent: added a bunch of the new player class files
