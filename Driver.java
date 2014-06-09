@@ -186,6 +186,35 @@ public class Driver{
 	
     }
 
+    public static void dayTime(){//daytime phase
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("It's daytime! Discuss who you wanna lynch, if anyone.");
+        System.out.print("Do you want to lynch someone? (Y/N) ");
+
+        String in = s.next();
+        in = in.toLowerCase();
+        while (!(in.equals("y") || in.equals("n")
+            || in.equals("no") || in.equals("yes"))){
+            System.out.print("Please input Y/N/Yes/No: ");
+            in = s.next();
+        }
+
+        if (in.equals("no") || in.equals("n")){
+            return;
+        } else { //yes
+            System.out.print("Who do you wanna lynch? ");
+            printAll();
+            in = s.next();
+            while (!(playerExists(in,game.getPlayers()))){
+                System.out.print("Please choose someone in the game: ");
+                in = s.next();
+            }
+            game.removePlayer(in);
+        }
+
+    }
+
     public static void printAll(){// test function
         for (Player p : game.getPlayers()){
             System.out.println(p);
@@ -237,6 +266,7 @@ public class Driver{
         System.out.println();
         printAll();//test
         System.out.println();
+        dayTime();
 
 	}
     }
