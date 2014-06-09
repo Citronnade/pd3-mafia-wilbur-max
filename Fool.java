@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class Fool extends Player{ //maybe mafia as a group should get a priority as well...
+public class Fool extends Player{
 
     //should we use static initialization blocks for this kind of stuff?
-    public Drunk(String name){
+    public Fool(String name){
 	this.name = name;
 	marks = new ArrayList<Mark>();
     }
