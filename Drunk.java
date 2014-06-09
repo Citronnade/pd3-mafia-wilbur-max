@@ -5,6 +5,7 @@ public class Drunk extends Player{
     //should we use static initialization blocks for this kind of stuff?
     public Drunk(String name){
 	this.name = name;
+	priority = 3;
 	marks = new ArrayList<Mark>();
     }
 
