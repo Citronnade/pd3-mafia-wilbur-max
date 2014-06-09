@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class Mafia extends Player{
+public class Granny extends Player{
 
     //should we use static initialization blocks for this kind of stuff?
-    public Mafia(String name){
+    public Granny(String name){
 	this.name = name;
 	priority = 1;
 	marks = new ArrayList<Mark>();
