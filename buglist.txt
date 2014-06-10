@@ -1,4 +1,4 @@
 
 
 Role bugs:
-When someone acts before the drunk and the drunk tries to role block the actor, the drunk cannot role block
+When someone acts before the drunk and the drunk tries to role block the actor, the drunk cannot role block (FIXED)
