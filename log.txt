@@ -26,3 +26,6 @@ Wilbur: Added daytime
 Vincent: Changed priorities
 Wilbur: Added some prompting text to the new classes, buglist file created
 Wilbur: Added win conditions for the town and the mafia
+
+6-10-14:
+Wilbur: Sorting works
