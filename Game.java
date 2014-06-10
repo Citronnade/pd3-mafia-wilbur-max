@@ -79,4 +79,34 @@ public class Game{
 
         return results;
     }
+
+    public int checkWinConditions(){//checks to see if anyone won 0 -> nobody 1 -> town 2 -> mafia 3 -> fool 4 -> serial killer
+        int index = 0;
+        boolean noMafia = true, noTown = true;
+        while (index < players.size()){
+            Player p = players.get(index);
+            if (p instanceof Mafia || p instanceof Hooker){
+                noMafia = false;
+            } else if (p instanceof Villager ||
+                       p instanceof Cop || p instanceof NaiveCop || p instanceof ParanoidCop || p instanceof InsaneCop ||
+                       p instanceof Doctor ||
+                       p instanceof Drunk ||
+                       p instanceof Vigilante ||
+                       p instanceof Granny ||
+                       p instanceof Bomb){
+                noTown = false;
+            }
+            index++;
+        }
+        if (noMafia){
+            System.out.println("The town has ousted the mafia!");
+            return 1;          
+        } else if (noTown){
+            System.out.println("The mafia has killed all the townspeople!");
+            return 2;
+        }
+
+        return 0;
+    }
+
 }

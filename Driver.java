@@ -235,19 +235,13 @@ public class Driver{
     
     //----------------------------------------
 
-    public static boolean checkWin () {
-	//checks to see if someone has already won the game
-	ArrayList<Player> players = game.getPlayers();
-	return false;
-    }
-
     //----------------------------------------
 
     public static void main(String args[]){ //perhaps can set up with args[] instead...
 	int night = 1;
 
 	startUp();
-	while (1 == 1){ //loop
+	while (game.checkWinConditions() == 0){ //loop
 	    //game.tick();
 	    System.out.println();
 	    System.out.println("Night " + night
@@ -268,6 +262,10 @@ public class Driver{
         System.out.println();
         printAll();//test
         System.out.println();
+
+        if (game.checkWinConditions() != 0){
+            break;
+        }
         dayTime();
 
 	}
