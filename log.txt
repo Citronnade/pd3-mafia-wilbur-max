@@ -25,3 +25,4 @@ Max: Also made granny do stuff
 Wilbur: Added daytime
 Vincent: Changed priorities
 Wilbur: Added some prompting text to the new classes, buglist file created
+Wilbur: Added win conditions for the town and the mafia
