@@ -1,12 +1,11 @@
 import java.util.*;
 
-public class Hooker extends Player{ 
+public class Hooker extends Mafia{ 
 
     //should we use static initialization blocks for this kind of stuff?
     public Hooker(String name){
-	this.name = name;
+	super(name);
 	priority = 4;
-	marks = new ArrayList<Mark>();
     actionText = "Please choose someone to block: ";
     }
 
