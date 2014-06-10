@@ -82,7 +82,7 @@ public class Game{
 
     public int checkWinConditions(){//checks to see if anyone won 0 -> nobody 1 -> town 2 -> mafia 3 -> fool 4 -> serial killer
         int index = 0;
-        boolean noMafia = true, noTown = true;
+        boolean noMafia = true, noTown = true, cerealAlive = false;
         while (index < players.size()){
             Player p = players.get(index);
             if (p instanceof Mafia || p instanceof Hooker){
@@ -96,12 +96,19 @@ public class Game{
                        p instanceof Bomb){
                 noTown = false;
             }
+	    if (p instanceof CerealKiller){
+		cerealAlive = true;
+	    }
             index++;
         }
+	if (cerealAlive && players.size() == 1){
+	    System.out.println("Cereal has prevailed!");
+	    return 4;
+	}
         if (noMafia){
             System.out.println("The town has ousted the mafia!");
             return 1;          
-        } else if (noTown){
+        } else if (noTown && !cerealAlive){
             System.out.println("The mafia has killed all the townspeople!");
             return 2;
         }
