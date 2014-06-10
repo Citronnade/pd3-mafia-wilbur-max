@@ -135,7 +135,8 @@ public class Driver{
 	String in = "";
         
 	ArrayList<Player> players = game.getPlayers();
-	
+    players = Collections.sort(players,new PriorityComp());
+    
 	Mafia mafiaVisitor = new Mafia("I'm going to be gone soon");
 
 	for (Player currentP: players){
