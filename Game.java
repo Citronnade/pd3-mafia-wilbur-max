@@ -88,7 +88,7 @@ public class Game{
             if (p instanceof Mafia || p instanceof Hooker){
                 noMafia = false;
             } else if (p instanceof Villager ||
-                       p instanceof Cop || p instanceof NaiveCop || p instanceof ParanoidCop || p instanceof InsaneCop ||
+                       p instanceof Cop ||// p instanceof NaiveCop || p instanceof ParanoidCop || p instanceof InsaneCop ||
                        p instanceof Doctor ||
                        p instanceof Drunk ||
                        p instanceof Vigilante ||
