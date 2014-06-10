@@ -10,7 +10,7 @@ public class Hooker extends Player{
     }
 
     public int act(){
-	return -1;
+	return 0;
     }
 
     public int act(Player other){
