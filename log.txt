@@ -29,3 +29,4 @@ Wilbur: Added win conditions for the town and the mafia
 
 6-10-14:
 Wilbur: Sorting works
+Max: winningconditions updated.  comparator fixed.
