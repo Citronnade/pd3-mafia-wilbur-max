@@ -6,6 +6,7 @@ public class CerealKiller extends Player{
     public CerealKiller(String name){
 	this.name = name;
 	marks = new ArrayList<Mark>();
+	actionText = "Please choose someone to kill: ";
     }
 
     public int act(){

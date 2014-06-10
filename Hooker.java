@@ -7,6 +7,7 @@ public class Hooker extends Player{
 	this.name = name;
 	priority = 4;
 	marks = new ArrayList<Mark>();
+    actionText = "Please choose someone to block: ";
     }
 
     public int act(){

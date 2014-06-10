@@ -7,6 +7,7 @@ public class Drunk extends Player{
 	this.name = name;
 	priority = 4; //higher than hooker
 	marks = new ArrayList<Mark>();
+    actionText = "Please choose someone to role block: ";
     }
 
     public int act(){

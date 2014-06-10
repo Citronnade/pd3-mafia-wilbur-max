@@ -7,6 +7,7 @@ public class Vigilante extends Player{
 	this.name = name;
 	priority = 1;
 	marks = new ArrayList<Mark>();
+	actionText = "Please choose someone to kill: ";
     }
 
     public int act(){
