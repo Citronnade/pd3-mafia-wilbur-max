@@ -23,14 +23,15 @@ public class Cop extends Player {
     
     
     public int inspect (Player other) {
+	other.addMark(new Mark(this, "inspect"));
 	if (other instanceof Mafia){
-		if (other instanceof Godfather){
-			System.out.println (other.getName() + " is innocent.");
-		}
-		else {
+	    if (other instanceof Godfather){
+		System.out.println (other.getName() + " is innocent.");
+	    }
+	    else {
 	    	System.out.println (other.getName() + " is associated with the mafia.");
 	    	return 1;
-		}
+	    }
 	}
 	else 
 	    System.out.println (other.getName() + " is innocent.");

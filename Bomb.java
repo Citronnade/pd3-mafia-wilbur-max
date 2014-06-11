@@ -15,7 +15,7 @@ public class Bomb extends Player{
 	    if (mark.getType() == "death"){
 		System.out.println("blowing up " + mark.getOrigin());
 		act(mark.getOrigin());
-		return 1;
+		return -1;
 	    }
 	}
 	return -1;
