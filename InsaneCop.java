@@ -6,7 +6,8 @@ public class InsaneCop extends Cop{
 		super(name);
 	}
 
-	public int inspect(Player other){
+    public int inspect(Player other){
+	other.addMark(new Mark(this, "inspect"));
 		if (!(other instanceof Mafia)){
 	    System.out.println (other.getName() + " is associated with the mafia.");
 	    return 1;

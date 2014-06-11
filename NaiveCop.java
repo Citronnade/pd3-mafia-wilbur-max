@@ -7,6 +7,7 @@ public class NaiveCop extends Cop{
 	}
 
 	public int inspect(Player other){
+	    other.addMark(new Mark(this, "inspect"));
 		System.out.println (other.getName() + " is innocent.");
 		return 0;
 	}

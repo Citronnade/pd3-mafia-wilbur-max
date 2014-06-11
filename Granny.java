@@ -6,6 +6,7 @@ public class Granny extends Player{
     public Granny(String name){
 	this.name = name;
 	marks = new ArrayList<Mark>();
+	int priority = -1;
     }
 
     public int act(){
@@ -17,7 +18,7 @@ public class Granny extends Player{
 	    victim.addMark(new Mark(this, "death"));
 	}
 	this.addMark(new Mark(this, "save"));
-	return 1; //don't go to act(other);
+	return -1; //don't go to act(other);
     }
 
     public int act(Player other){//just waits silently for her victims
