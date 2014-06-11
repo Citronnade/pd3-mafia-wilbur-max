@@ -33,6 +33,58 @@ public class Driver{
     	}
     }
 
+    public static void startUpRoleChooser(){
+        System.out.print("Welcome to Mafia! How many players? ");
+        Scanner s = new Scanner(System.in);
+        
+        String in = "";
+        int numPlayers = 0;
+        while (numPlayers <= 0){
+            in = s.next();
+            try {
+               numPlayers = Integer.parseInt(in);
+               if (numPlayers <= 0){
+                    System.out.print("Please input a positive integer: ");
+               }
+            } catch (NumberFormatException E){
+                System.out.print("Please input an integer: ");
+            }
+        }
+        
+        System.out.println();
+
+        game = new Game();
+        
+        int numRolesRemaining = numPlayers;//number of roles left to assign
+        String[] roles = {"mafia","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"};
+        int[] numOfEachRole = new int[roles.length];//array for the number of people with that role 
+        while (numRolesRemaining > 0){
+            int i = 0;
+            if (i == roles.length-1){//in case gone through all the roles and still have extras 
+                numOfEachRole[i] = numRolesRemaining;
+                numRolesRemaining = 0;
+            } else {
+                System.out.print("How many " + roles[i] + "? ");
+
+                int temp = -1;
+                while (temp < 0 || temp > numRolesRemaining){
+                    in = s.next();
+                    try {
+                        temp = Integer.parseInt(in);
+                        if (temp < 0){
+                            System.out.print("Please input a nonnegative integer: ");
+                        }
+                    } catch (NumberFormatException E){
+                        System.out.print("Please input an integer: ");
+                    }
+                }
+                numOfEachRole[i] = temp;
+            }
+            i++;
+        }
+
+    }
+
     public static void addPlayer(){//temporary thing for testing purposes
     	String[] types = {"villager","mafia","cop","doctor","bomb","drunk","vigilante","granny","fool","hooker","cerealkiller"};
 
@@ -241,7 +293,7 @@ public class Driver{
     //----------------------------------------
 
     //----------------------------------------
-
+    
     public static void main(String args[]){ //perhaps can set up with args[] instead...
 	int night = 1;
 
@@ -275,6 +327,13 @@ public class Driver{
 
 	}
     }
+    
+    //testing
+    /*
+    public static void main(String[] args) {
+        startUpRoleChooser();
+    }
+    */
 }
  
 
