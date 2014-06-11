@@ -84,17 +84,51 @@ public class Driver{
         }
 
         String[] names = new String[numPlayers];
-        int i = 0;
-        while (i < names.length){
-            System.out.println("Player " + (i+1));
+        int index = 0;
+        while (index < names.length){
+            System.out.println("Player " + (index+1));
             System.out.print("What is your name? ");
             String name = s.next();
             while (!(validateName(name))){
                 System.out.print("That name has already been chosen. Please choose another name: ");
                 name = s.next();
             }
+
+            names[index] = name;
+            index++;
         }
 
+        ArrayList<String> rolesInGame = new ArrayList<String>();//all the valid roles in game
+        for (int i = 0; i < numOfEachRole.length;i++){
+            for (int j = numOfEachRole[i]; j > 0; j--){
+                rolesInGame.add(roles[i]);//j roles of type i
+            }
+        }
+
+        for (int i = 0; i < names.length; i++){
+            int rand = (int)(Math.random() * rolesInGame.size());
+            String roleForI =  rolesInGame.get(rand);
+            rolesInGame.remove(rand);
+
+            switch (roleForI){
+                //"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"
+                case "mafia": game.addPlayer(new Mafia(names[i]));
+                case "godfathers": game.addPlayer(new Godfather(names[i]));
+
+                case "doctors": game.addPlayer(new Doctor(names[i]));
+                case "bombs": game.addPlayer(new Bomb(names[i]));
+                case "drunks": game.addPlayer(new Drunk(names[i]));
+                case "vigilantes": game.addPlayer(new Vigilante(names[i]));
+                case "grannies": game.addPlayer(new Granny(names[i]));
+                case "fools": game.addPlayer(new Fool(names[i]));
+                case "hookers": game.addPlayer(new Hooker(names[i]));
+                case "cerealkillers": game.addPlayer(new CerealKiller(names[i]));
+
+                default: game.addPlayer(new Villager(names[i]));
+                break;
+            }
+
+        }
 
         /*
         for (int i = 0; i < numOfEachRole.length; i++ ){
