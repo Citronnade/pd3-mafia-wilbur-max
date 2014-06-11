@@ -56,7 +56,7 @@ public class Driver{
         game = new Game();
         
         int numRolesRemaining = numPlayers;//number of roles left to assign
-        String[] roles = {"godfather","mafia","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"};
+        String[] roles = {"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"};
         int[] numOfEachRole = new int[roles.length];//array for the number of people with that role 
         while (numRolesRemaining > 0){
             int i = 0;
@@ -82,6 +82,25 @@ public class Driver{
             }
             i++;
         }
+
+        String[] names = new String[numPlayers];
+        int i = 0;
+        while (i < names.length){
+            System.out.println("Player " + (i+1));
+            System.out.print("What is your name? ");
+            String name = s.next();
+            while (!(validateName(name))){
+                System.out.print("That name has already been chosen. Please choose another name: ");
+                name = s.next();
+            }
+        }
+
+
+        /*
+        for (int i = 0; i < numOfEachRole.length; i++ ){
+            addPlayer(numOfEachRole[i],roles[i]);
+        }
+        */
 
     }
 
