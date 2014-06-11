@@ -140,9 +140,34 @@ public class Driver{
 	Mafia mafiaVisitor = new Mafia("I'm going to be gone soon");
 
 	for (Player currentP: players){
-	    
+
 	    if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
-		System.out.println(currentP.getName() + 
+		  
+          if(currentP.priority <= 1 && !game.mafiaWent){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
+              if (currentP instanceof Mafia){
+                 game.mafiaWent = true; //must be reset every tick
+                  mafiaVisitor = (Mafia) currentP;
+              }
+              if (game.mafiaWent){
+                  System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit.");
+
+                  in = s.next();
+
+                  while (!(playerExists(in, players))){
+                     System.out.println("Please choose someone in the game.");
+                     in = s.next();
+                  }
+
+                 for (Player target: players){    //find the target.  we can quickselect
+                       if (target.getName().equals(in)){
+                         mafiaVisitor.act(target); //basically puts kill mark on target.
+                       }
+                 }
+            }
+        } else if (currentP instanceof Mafia){//skips the remaining mafia
+
+        } else {
+        System.out.println(currentP.getName() + 
 				   "(" + currentP.getClass().getName() + ")"
 				   + ", please wake up.");
 		System.out.print(currentP.getActionText());
@@ -158,38 +183,13 @@ public class Driver{
 		System.out.println(currentP.getName() + ", please go to sleep.");
 		System.out.println();
 		
-		if(currentP.priority <= 1){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
-		    if (currentP instanceof Mafia && !game.mafiaWent){
-			game.mafiaWent = true; //must be reset every tick
-			mafiaVisitor = (Mafia) currentP;
-		    }
-		    if (game.mafiaWent){
-			System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit.");
-
-			in = s.next();
-
-			while (!(playerExists(in, players))){
-			    System.out.println("Please choose someone in the game.");
-			    in = s.next();
-			}
-
-			for (Player target: players){    //find the target.  we can quickselect
-			    if (target.getName().equals(in)){
-				mafiaVisitor.act(target); //basically puts kill mark on target.
-			    }
-			}
-			game.mafiaWent = false;
-		    }
 		}
-	    }
-
-
-
+		}
 	    
 	    in = "";
 	}
     //mafia night action
-
+    game.mafiaWent = false;
 	
     }
 
