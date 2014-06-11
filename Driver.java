@@ -56,7 +56,7 @@ public class Driver{
         game = new Game();
         
         int numRolesRemaining = numPlayers;//number of roles left to assign
-        String[] roles = {"mafia","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"};
+        String[] roles = {"godfather","mafia","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"};
         int[] numOfEachRole = new int[roles.length];//array for the number of people with that role 
         while (numRolesRemaining > 0){
             int i = 0;
@@ -86,7 +86,7 @@ public class Driver{
     }
 
     public static void addPlayer(){//temporary thing for testing purposes
-    	String[] types = {"villager","mafia","cop","doctor","bomb","drunk","vigilante","granny","fool","hooker","cerealkiller"};
+    	String[] types = {"villager","mafia","godfather","cop","doctor","bomb","drunk","vigilante","granny","fool","hooker","cerealkiller"};
 
     	Scanner s = new Scanner(System.in);
     	System.out.println("What kind of player would you like to be? ");
@@ -111,21 +111,24 @@ public class Driver{
     	if (in.equals("villager") || in.equals("v")){
     		temp = new Villager(name);
     	} 
-	else if (in.equals("mafia") || in.equals("m")){
+	   else if (in.equals("mafia") || in.equals("m")){
     		temp = new Mafia(name);
     	} 
-	else if (in.equals("cop") || in.equals("c")){
+        else if (in.equals("godfather")) {
+            temp = new Godfather(name);
+        }
+	   else if (in.equals("cop") || in.equals("c")){
             double rand = Math.random();
             if (rand < 0.25){
                 temp = new Cop(name);
             } 
-	    else if (rand < 0.5){
+            else if (rand < 0.5){
                 temp = new NaiveCop(name);
             } 
-	    else if (rand < 0.75){
+            else if (rand < 0.75){
                 temp = new ParanoidCop(name);
             } 
-	    else {
+            else {
                 temp = new InsaneCop(name);
             }
     	} 

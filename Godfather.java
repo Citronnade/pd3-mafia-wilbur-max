@@ -4,8 +4,7 @@ public class Godfather extends Mafia{
 
     //should we use static initialization blocks for this kind of stuff?
     public Godfather(String name){
-		this.name = name;
-		priority = 1;
+		super(name);
 		marks = new ArrayList<Mark>();
     }
 
