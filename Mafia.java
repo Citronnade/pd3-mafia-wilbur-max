@@ -17,10 +17,13 @@ public class Mafia extends Player{ //maybe mafia as a group should get a priorit
 	if (false){
 	    return 0;
 	}
+	/*
 	else{
 	    kill(other);
 	    return 1;
 	}
+	*/
+	return 0; //DISABLED.  MAFIA MANUALLY CALL KILL.
 	
     }
 

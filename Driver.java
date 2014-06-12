@@ -293,11 +293,12 @@ public class Driver{
 
                  for (Player target: players){    //find the target.  we can quickselect
                        if (target.getName().equals(in)){
-                         mafiaVisitor.act(target); //basically puts kill mark on target.
+                         mafiaVisitor.kill(target); //basically puts kill mark on target.
+			 //mafia now kill manually, act() routines do nothing.
                        }
                  }
             }
-        } else if (currentP instanceof Mafia){//skips the remaining mafia
+	  } //else if (currentP instanceof Mafia){//skips the remaining mafia
 
         } else {
         System.out.println(currentP.getName() + 
