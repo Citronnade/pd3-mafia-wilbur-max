@@ -6,7 +6,7 @@ public class Godfather extends Mafia{
     public Godfather(String name){
 		super(name);
 		marks = new ArrayList<Mark>();
-		priority = 5; //higher than hooker; will visit; this should be higher than any mafia role
+		priority = 6; //higher than hooker; will visit; this should be higher than any mafia role
     }
 
     public int act(){

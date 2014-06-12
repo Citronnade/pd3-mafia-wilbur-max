@@ -5,7 +5,7 @@ public class Mafia extends Player{ //maybe mafia as a group should get a priorit
     //should we use static initialization blocks for this kind of stuff?
     public Mafia(String name){
 	this.name = name;
-	priority = 1;
+	priority = 2;
 	marks = new ArrayList<Mark>();
     }
 

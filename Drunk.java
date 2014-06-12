@@ -5,7 +5,7 @@ public class Drunk extends Player{
     //should we use static initialization blocks for this kind of stuff?
     public Drunk(String name){
 	this.name = name;
-	priority = 4; //higher than hooker
+	priority = 5; //higher than hooker
 	marks = new ArrayList<Mark>();
     actionText = "Please choose someone to role block: ";
     }

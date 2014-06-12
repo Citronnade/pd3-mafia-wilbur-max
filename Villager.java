@@ -4,7 +4,7 @@ public class Villager extends Player{//default villager that doesn't do anything
 
     public Villager(String name){
 	this.name = name;
-	priority = 0;//don't really need this
+	priority = 1;//don't really need this
 	marks = new ArrayList<Mark>();
     }
 

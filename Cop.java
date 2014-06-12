@@ -4,7 +4,7 @@ public class Cop extends Player {
     
     public Cop (String name) {
 	this.name = name;
-	priority = 2;
+	priority = 3;
 	marks = new ArrayList <Mark> ();
 	actionText = "Please choose someone to inspect: ";
     }

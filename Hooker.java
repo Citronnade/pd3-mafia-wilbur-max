@@ -5,7 +5,7 @@ public class Hooker extends Mafia{
     //should we use static initialization blocks for this kind of stuff?
     public Hooker(String name){
 	super(name);
-	priority = 4;
+	priority = 5;
     actionText = "Please choose someone to block: ";
     }
 

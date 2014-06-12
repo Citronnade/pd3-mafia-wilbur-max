@@ -6,7 +6,7 @@ public class Granny extends Player{
     public Granny(String name){
 	this.name = name;
 	marks = new ArrayList<Mark>();
-	int priority = -1;
+	int priority = 0;
     }
 
     public int act(){

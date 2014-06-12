@@ -4,7 +4,7 @@ public class Doctor extends Player{
     public Doctor(String name){
 	super();
 	this.name = name;
-	priority = 2;
+	priority = 3;
 	marks = new ArrayList<Mark>();
 	actionText = "Please choose someone to save: ";
     }

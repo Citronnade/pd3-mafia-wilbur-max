@@ -6,7 +6,7 @@ public class Bomb extends Player{
     public Bomb(String name){
 	this.name = name;
 	marks = new ArrayList<Mark>();
-	priority = -1;
+	priority = 0;
     }
 
     public int act(){

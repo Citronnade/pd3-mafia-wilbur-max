@@ -4,6 +4,7 @@ public class Fool extends Player{
 
     //should we use static initialization blocks for this kind of stuff?
     public Fool(String name){
+    priority = 1;
 	this.name = name;
 	marks = new ArrayList<Mark>();
     }

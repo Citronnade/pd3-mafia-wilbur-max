@@ -6,6 +6,7 @@ public class SerialKiller extends Player{
     public SerialKiller(String name){
 	this.name = name;
 	marks = new ArrayList<Mark>();
+	priority = 1;
 	actionText = "Please choose someone to kill: ";
     }
 
