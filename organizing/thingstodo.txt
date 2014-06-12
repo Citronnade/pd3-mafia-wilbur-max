@@ -1,2 +1,7 @@
 
-- Normalize priorities so that priority >= 0
+TODO:
+- Hash
+
+
+DONE:
+- Normalize priorities so that priority >= 0 
