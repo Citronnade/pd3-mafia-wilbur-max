@@ -56,7 +56,7 @@ public class Driver{
         game = new Game();
         
         int numRolesRemaining = numPlayers;//number of roles left to assign
-        String[] roles = {"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"};
+        String[] roles = {"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","serialkillers","villager"};
         int[] numOfEachRole = new int[roles.length];//array for the number of people with that role 
         int i = 0;
         while (numRolesRemaining > 0){
@@ -113,7 +113,7 @@ public class Driver{
             rolesInGame.remove(rand);
 
             switch (roleForI){
-                //"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"
+                //"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","serialkillers","villager"
 	    case "mafia": game.addPlayer(new Mafia(names[i]));
 		break;
 	    case "godfathers": game.addPlayer(new Godfather(names[i]));
@@ -147,7 +147,7 @@ public class Driver{
 		break;
 	    case "hookers": game.addPlayer(new Hooker(names[i]));
 		break;
-	    case "cerealkillers": game.addPlayer(new CerealKiller(names[i]));
+	    case "serialkillers": game.addPlayer(new SerialKiller(names[i]));
 		break;
 	    default: game.addPlayer(new Villager(names[i]));
 		break;
@@ -164,7 +164,7 @@ public class Driver{
     }
 
     public static void addPlayer(){//temporary thing for testing purposes
-    	String[] types = {"villager","mafia","godfather","cop","doctor","bomb","drunk","vigilante","granny","fool","hooker","cerealkiller"};
+    	String[] types = {"villager","mafia","godfather","cop","doctor","bomb","drunk","vigilante","granny","fool","hooker","serialkiller"};
 
     	Scanner s = new Scanner(System.in);
     	System.out.println("What kind of player would you like to be? ");
@@ -230,8 +230,8 @@ public class Driver{
 	else if (in.equals("hooker")) {
 	    temp = new Hooker (name);
 	}
-	else if (in.equals("cerealkiller")) {
-	    temp = new CerealKiller (name);
+	else if (in.equals("SerialKiller")) {
+	    temp = new SerialKiller (name);
 	}
 	else {
 	    temp = new Villager(name);

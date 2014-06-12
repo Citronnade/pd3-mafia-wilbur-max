@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class CerealKiller extends Player{
+public class SerialKiller extends Player{
 
     //should we use static initialization blocks for this kind of stuff?
-    public CerealKiller(String name){
+    public SerialKiller(String name){
 	this.name = name;
 	marks = new ArrayList<Mark>();
 	actionText = "Please choose someone to kill: ";
