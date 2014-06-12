@@ -37,3 +37,5 @@ Max: Granny and bomb work now without weird bugs.  All visiting roles now die vi
 
 6-12-14:
 Wilbur: Added the game randomly choosing roles for each player
+Max: fixed errors in bracketing and also the mafia
+Wilbur: changed "cereal" to "serial"
