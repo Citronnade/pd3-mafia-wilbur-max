@@ -34,3 +34,6 @@ Wilbur: Fixed some issues with the mafia that messed up the order
 
 6-11-14:
 Max: Granny and bomb work now without weird bugs.  All visiting roles now die visiting granny
+
+6-12-14:
+Wilbur: Added the game randomly choosing roles for each player
