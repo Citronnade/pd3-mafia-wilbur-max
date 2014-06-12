@@ -58,8 +58,8 @@ public class Driver{
         int numRolesRemaining = numPlayers;//number of roles left to assign
         String[] roles = {"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"};
         int[] numOfEachRole = new int[roles.length];//array for the number of people with that role 
+        int i = 0;
         while (numRolesRemaining > 0){
-            int i = 0;
             if (i == roles.length-1){//in case gone through all the roles and still have extras 
                 numOfEachRole[i] = numRolesRemaining;
                 numRolesRemaining = 0;
@@ -79,8 +79,10 @@ public class Driver{
                     }
                 }
                 numOfEachRole[i] = temp;
+                numRolesRemaining -= temp;
             }
             i++;
+
         }
 
         String[] names = new String[numPlayers];
@@ -99,13 +101,13 @@ public class Driver{
         }
 
         ArrayList<String> rolesInGame = new ArrayList<String>();//all the valid roles in game
-        for (int i = 0; i < numOfEachRole.length;i++){
+        for (i = 0; i < numOfEachRole.length;i++){
             for (int j = numOfEachRole[i]; j > 0; j--){
                 rolesInGame.add(roles[i]);//j roles of type i
             }
         }
 
-        for (int i = 0; i < names.length; i++){
+        for (i = 0; i < names.length; i++){
             int rand = (int)(Math.random() * rolesInGame.size());
             String roleForI =  rolesInGame.get(rand);
             rolesInGame.remove(rand);
@@ -113,19 +115,42 @@ public class Driver{
             switch (roleForI){
                 //"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","cerealkillers","villager"
                 case "mafia": game.addPlayer(new Mafia(names[i]));
+                    break;
                 case "godfathers": game.addPlayer(new Godfather(names[i]));
-
+                    break;
+                case "cops": 
+                    double rando = Math.random();
+                    if (rando < 0.25){
+                        game.addPlayer(new Cop(names[i]));
+                    } 
+                    else if (rando < 0.5){
+                        game.addPlayer(new NaiveCop(names[i]));
+                    } 
+                    else if (rando < 0.75){
+                        game.addPlayer(new ParanoidCop(names[i]));
+                    } 
+                    else {
+                        game.addPlayer(new InsaneCop(names[i]));
+                    }
+                    break;
                 case "doctors": game.addPlayer(new Doctor(names[i]));
+                    break;
                 case "bombs": game.addPlayer(new Bomb(names[i]));
+                    break;
                 case "drunks": game.addPlayer(new Drunk(names[i]));
+                    break;
                 case "vigilantes": game.addPlayer(new Vigilante(names[i]));
+                    break;
                 case "grannies": game.addPlayer(new Granny(names[i]));
+                    break;
                 case "fools": game.addPlayer(new Fool(names[i]));
+                    break;
                 case "hookers": game.addPlayer(new Hooker(names[i]));
+                    break;
                 case "cerealkillers": game.addPlayer(new CerealKiller(names[i]));
-
+                    break;
                 default: game.addPlayer(new Villager(names[i]));
-                break;
+                    break;
             }
 
         }
@@ -349,7 +374,7 @@ public class Driver{
     //----------------------------------------
 
     //----------------------------------------
-    
+    /*
     public static void main(String args[]){ //perhaps can set up with args[] instead...
 	int night = 1;
 
@@ -383,13 +408,42 @@ public class Driver{
 
 	}
     }
-    
+    */
     //testing
-    /*
+    
     public static void main(String[] args) {
         startUpRoleChooser();
+        int night = 1;
+        while (game.checkWinConditions() == 0){ //loop
+        //game.tick();
+        System.out.println();
+        System.out.println("Night " + night
+                   + "\nEverybody go to sleep!");
+      
+        night++;
+        loopThroughPlayers();
+        queryPlayers("");
+        System.out.println();
+        System.out.println("Everybody wake up!");
+
+        System.out.println();
+        printAll();//test
+        System.out.println();
+
+        System.out.println(game.processMarks());
+
+        System.out.println();
+        printAll();//test
+        System.out.println();
+
+        if (game.checkWinConditions() != 0){
+            break;
+        }
+        dayTime();
+
     }
-    */
+    }
+    
 }
  
 
