@@ -42,3 +42,4 @@ Wilbur: changed "cereal" to "serial"
 
 6-13-14:
 Wilbur: Added death messages, fixed some bugs
+Max: Added hash-y thing to assign roles to cards
