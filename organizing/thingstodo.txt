@@ -1,9 +1,9 @@
 
 TODO:
-- Hash
 - Fix the priority issue
 
 
 DONE:
 - Normalize priorities so that priority >= 0 
 - Add backstories
+- Hash
