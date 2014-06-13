@@ -1,7 +1,7 @@
 
 TODO:
 - Fix the priority issue
-
+- Make things look nice
 
 DONE:
 - Normalize priorities so that priority >= 0 
