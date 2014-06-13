@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.File;
 
 public class Driver{
     
@@ -91,7 +92,7 @@ public class Driver{
             System.out.println("Player " + (index+1));
             System.out.print("What is your name? ");
             String name = s.next();
-            while (!(validateName(name))){
+            while (Arrays.asList(names).contains(name)){
                 System.out.print("That name has already been chosen. Please choose another name: ");
                 name = s.next();
             }
@@ -276,7 +277,7 @@ public class Driver{
 
 	    if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
 		  
-		if(currentP.priority <= 1 && !game.mafiaWent){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
+		if(currentP.priority <= 2 && !game.mafiaWent){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
 		    if (currentP instanceof Mafia){
 			game.mafiaWent = true; //must be reset every tick
 			mafiaVisitor = (Mafia) currentP;

@@ -5,15 +5,33 @@ import java.io.*;
 
 public class Game{
     private ArrayList<Player> players;
-
+    private String[] deathMessages;
     protected static boolean mafiaWent;
 
     public void addPlayer(Player p){
 	players.add(p);
+    
     }
+
 
     public Game(){
 	players = new ArrayList<Player>();
+    try {
+        File f = new File("organizing/deathstories.txt");
+
+        Scanner s = new Scanner(f);
+        int numLines = Integer.parseInt(s.nextLine());
+        deathMessages = new String[numLines];
+
+        int i = 0;
+        while (s.hasNextLine()){
+            deathMessages[i] = s.nextLine();
+            i++;
+        }
+    } catch (FileNotFoundException E){
+        System.out.println("The file of deathmessages has not been found. ");
+    }
+    
     }
 
     public Game(int numPlayers){
@@ -67,7 +85,13 @@ public class Game{
             if (dead && (!saved)){
                 players.remove(x); //he's dead, out of the game
                 x--;
-                results += currentP.getName() + " has died.";
+                int randInArray = (int)(Math.random() * deathMessages.length);
+                String deathMessage = deathMessages[randInArray];
+                deathMessage.replaceAll("<VICTIM>",currentP.getName());
+
+                Player temp = players.get((int)(Math.random() * players.size()));
+                deathMessage.replaceAll("<PASSERBY>",temp.getName());
+
             } else {
                 currentP.clearMarks();//clears the arraylist of marks
             }
