@@ -1,6 +1,7 @@
 
 TODO:
 - Hash
+- Add backstories
 
 
 DONE:
