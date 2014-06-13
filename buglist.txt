@@ -5,5 +5,5 @@ When someone acts before the drunk and the drunk tries to role block the actor, 
 In starting up the game, the random selection makes a whole bunch of extra players (FIXED)
 Mafia are acting when they are not supposed to.
 If mafia is the lowest priority role in the game, they can't kill.
-Duplicate names.
+Duplicate names. (FIXED)
 Any role that can kill, can kill themselves.
