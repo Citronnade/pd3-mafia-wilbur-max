@@ -10,7 +10,7 @@ public class Hooker extends Mafia{
     }
 
     public int act(){
-	return 0;
+	return -1;
     }
 
     public int act(Player other){

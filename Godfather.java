@@ -10,7 +10,7 @@ public class Godfather extends Mafia{
     }
 
     public int act(){
-		return 0;
+		return -1;
     }
 
     public int act(Player other){/*
@@ -22,7 +22,7 @@ public class Godfather extends Mafia{
 	    	return 1;
 		}
 				 */
-	return 0;
+	return -1;
     }
 
     public int kill(Player other){ //this can return some interesting information

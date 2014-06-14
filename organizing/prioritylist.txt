@@ -5,7 +5,7 @@ Drunk 5
 Fool 1
 Godfather 6
 Granny 0
-Hooker 5
+Hooker 4
 InsaneCop 3
 Mafia 2
 NaiveCop 3
