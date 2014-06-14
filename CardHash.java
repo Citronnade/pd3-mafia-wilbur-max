@@ -23,7 +23,9 @@ public class CardHash{ //wtf
 	for (Player player: players){ //sorted in priority order
 	    System.out.println(values.size());
 	    System.out.println(players.size());
-	    int pri = player.priority * 7 / normalizer + 5; //start at 6--> A;
+	    System.out.println("normalizer:" + normalizer);
+	    int pri = (int)(((double) player.priority * 7) / (double) normalizer + 5); //start at 6--> A;
+	    System.out.println("pri:" + pri);
 	    if (values.get(pri).size() < 4){
 		values.get(pri).add(player);
 	    }
