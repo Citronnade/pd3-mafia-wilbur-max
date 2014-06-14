@@ -417,6 +417,8 @@ public static boolean playerExists(String name, ArrayList<Player> players){
 public static void main(String[] args) {
     startUpRoleChooser();
     int night = 1;
+    CardHash hash = new CardHash(game.getPlayers());
+    System.out.println(hash);
     while (game.checkWinConditions() == 0){ //loop
         //game.tick();
         System.out.println();

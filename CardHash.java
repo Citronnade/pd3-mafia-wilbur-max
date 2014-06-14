@@ -8,10 +8,11 @@ public class CardHash{ //wtf
     private ArrayList<Player> players; //do we need this?
     
     public CardHash(ArrayList<Player> players){
+	values = new ArrayList(13);
 	for (LinkedList ll: values){
 	    ll = new LinkedList();
 	}
-	values = new ArrayList(13);
+
 	this.players = players;
 	init();
     }
