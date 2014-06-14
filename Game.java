@@ -87,10 +87,11 @@ public class Game{
                 x--;
                 int randInArray = (int)(Math.random() * deathMessages.length);
                 String deathMessage = deathMessages[randInArray];
-                deathMessage.replaceAll("<VICTIM>",currentP.getName());
+                deathMessage = deathMessage.replaceAll("<VICTIM>",currentP.getName());
 
                 Player temp = players.get((int)(Math.random() * players.size()));
-                deathMessage.replaceAll("<PASSERBY>",temp.getName());
+                deathMessage = deathMessage.replaceAll("<PASSERBY>",temp.getName());
+                results+= deathMessage + "\n";
 
             } else {
                 currentP.clearMarks();//clears the arraylist of marks
