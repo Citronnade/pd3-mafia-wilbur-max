@@ -43,3 +43,6 @@ Wilbur: changed "cereal" to "serial"
 6-13-14:
 Wilbur: Added death messages, fixed some bugs
 Max: Added hash-y thing to assign roles to cards
+
+6-14-14:
+Wilbur: Changed next to nextline in the scanner to properly take in input

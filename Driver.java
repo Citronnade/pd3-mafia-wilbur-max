@@ -12,7 +12,7 @@ public class Driver{
         String in = "";
         int numPlayers = 0;
         while (numPlayers <= 0){
-            in = s.next();
+            in = s.nextLine();
             try {
 		numPlayers = Integer.parseInt(in);
 		if (numPlayers <= 0){
@@ -41,7 +41,7 @@ public class Driver{
         String in = "";
         int numPlayers = 0;
         while (numPlayers <= 0){
-            in = s.next();
+            in = s.nextLine();
             try {
 		numPlayers = Integer.parseInt(in);
 		if (numPlayers <= 0){
@@ -69,7 +69,7 @@ public class Driver{
 
                 int temp = -1;
                 while (temp < 0 || temp > numRolesRemaining){
-                    in = s.next();
+                    in = s.nextLine();
                     try {
                         temp = Integer.parseInt(in);
                         if (temp < 0){
@@ -91,10 +91,10 @@ public class Driver{
         while (index < names.length){
             System.out.println("Player " + (index+1));
             System.out.print("What is your name? ");
-            String name = s.next();
+            String name = s.nextLine();
             while (Arrays.asList(names).contains(name)){
                 System.out.print("That name has already been chosen. Please choose another name: ");
-                name = s.next();
+                name = s.nextLine();
             }
 
             names[index] = name;
@@ -175,13 +175,13 @@ public class Driver{
 			     + " ");
     	}
     	System.out.println();
-    	String in = s.next();
+    	String in = s.nextLine();
         in = in.toLowerCase();
     	System.out.print("What is your name? ");
-    	String name = s.next();
+    	String name = s.nextLine();
         while (!(validateName(name))){
             System.out.print("That name has already been chosen. Please choose another name: ");
-            name = s.next();
+            name = s.nextLine();
         }
 
     	Player temp = null;
@@ -275,44 +275,41 @@ public class Driver{
 
 	for (Player currentP: players){
 
-	    if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
+	  if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
 		  
-		if(currentP.priority <= 2 && !game.mafiaWent){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
-		    if (currentP instanceof Mafia){
-			game.mafiaWent = true; //must be reset every tick
-			mafiaVisitor = (Mafia) currentP;
-		    }
-		    if (game.mafiaWent){
-			System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit.");
+  		if(currentP.priority <= 2 && !game.mafiaWent){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
+  		    if (currentP instanceof Mafia){
+  		    	game.mafiaWent = true; //must be reset every tick
+  		    	mafiaVisitor = (Mafia) currentP;
+  		    }
+  		    if (game.mafiaWent){
+  		    	System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit.");
 
-			in = s.next();
+  		    	in = s.nextLine();
 
-			while (!(playerExists(in, players))){
-			    System.out.println("Please choose someone in the game.");
-			    in = s.next();
-			}
+  		    	while (!(playerExists(in, players))){
+  			     System.out.println("Please choose someone in the game.");
+  			     in = s.nextLine();
+  			  }
 
-			for (Player target: players){    //find the target.  we can quickselect
-			    if (target.getName().equals(in)){
-				mafiaVisitor.kill(target); //basically puts kill mark on target.
-				//mafia now kill manually, act() routines do nothing.
-			    }
-			}
-		    }
-		} //else if (currentP instanceof Mafia){//skips the remaining mafia
-
-		//	    } 
-		else {
+  			  for (Player target: players){    //find the target.  we can quickselect
+  			    if (target.getName().equals(in)){
+  				  mafiaVisitor.kill(target); //basically puts kill mark on target.
+  				  //mafia now kill manually, act() routines do nothing.
+  			    }
+  			  }
+  	  }
+		} else {
 		    System.out.println(currentP.getName() + 
 				       "(" + currentP.getClass().getName() + ")"
 				       + ", please wake up.");
 		    System.out.print(currentP.getActionText());
             
-		    in = s.next();
+		    in = s.nextLine();
           
 		    while (!(playerExists(in, players))){
 			System.out.println("Please choose someone in the game.");
-			in = s.next();
+			in = s.nextLine();
 		    }
 		
 		    currentP.act(game.getPlayerByName(in));
@@ -335,12 +332,12 @@ public static void dayTime(){//daytime phase
     System.out.println("It's daytime! Discuss who you wanna lynch, if anyone.");
     System.out.print("Do you want to lynch someone? (Y/N) ");
 
-    String in = s.next();
+    String in = s.nextLine();
     in = in.toLowerCase();
     while (!(in.equals("y") || in.equals("n")
 	     || in.equals("no") || in.equals("yes"))){
 	System.out.print("Please input Y/N/Yes/No: ");
-	in = s.next();
+	in = s.nextLine();
     }
 
     if (in.equals("no") || in.equals("n")){
@@ -348,10 +345,10 @@ public static void dayTime(){//daytime phase
     } else { //yes
 	System.out.print("Who do you wanna lynch? ");
 	printAll();
-	in = s.next();
+	in = s.nextLine();
 	while (!(playerExists(in,game.getPlayers()))){
 	    System.out.print("Please choose someone in the game: ");
-	    in = s.next();
+	    in = s.nextLine();
 	}
 	game.removePlayer(in);
     }
@@ -471,7 +468,7 @@ public static void main(String[] args) {
 
   while (!(playerExists(in, players))){
   System.out.println("Please choose someone in the game.");
-  in = s.next();
+  in = s.nextLine();
   }
   for (int x = 0; x < players.size();x++){   
   if (players.get(x).getName().equals(in)){
@@ -489,7 +486,7 @@ public static void main(String[] args) {
 
   while (!(playerExists(in, players))){
   System.out.println("Please choose someone in the game.");
-  in = s.next();
+  in = s.nextLine();
   }
         
 
@@ -504,7 +501,7 @@ public static void main(String[] args) {
 
         while (!(playerExists(in, players))){
             System.out.println("Please choose someone in the game.");
-            in = s.next();
+            in = s.nextLine();
         }
         System.out.println("Doctors, please go to sleep.");
 
