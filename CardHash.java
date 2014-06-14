@@ -9,8 +9,8 @@ public class CardHash{ //wtf
     
     public CardHash(ArrayList<Player> players){
 	values = new ArrayList(13);
-	for (LinkedList ll: values){
-	    ll = new LinkedList();
+	for (int i = 0; i< 13; i++){
+	    values.add(new LinkedList());
 	}
 
 	this.players = players;
@@ -21,7 +21,9 @@ public class CardHash{ //wtf
 	int normalizer = players.get(0).priority; //take each player's priority, multiply by 7, divide by this.  Should this be a double?
 	int current = 0;
 	for (Player player: players){ //sorted in priority order
-	    int pri = player.priority * 7 / normalizer + 6; //start at 6--> A;
+	    System.out.println(values.size());
+	    System.out.println(players.size());
+	    int pri = player.priority * 7 / normalizer + 5; //start at 6--> A;
 	    if (values.get(pri).size() < 4){
 		values.get(pri).add(player);
 	    }
