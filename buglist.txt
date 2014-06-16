@@ -7,3 +7,6 @@ Mafia are acting when they are not supposed to. (FIXED)
 If mafia is the lowest priority role in the game, they can't kill. (FIXED)
 Duplicate names. (FIXED)
 Any role that can kill, can kill themselves.
+
+General bugs:
+Card hashing doesn't work as intended sometimes (seems to work better for smaller groups)
