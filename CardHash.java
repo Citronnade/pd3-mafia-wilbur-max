@@ -30,13 +30,14 @@ public class CardHash{ //wtf
 		values.get(pri).add(player);
 	    }
 	    else{
-		if (values.get(current).size() >= 4){
-		    current ++;
-		}
+			while (values.get(current).size() >= 4){
+		    	current ++;
+			}/*
 		if (values.get(current).size() != 0){
 		    System.out.println("something went wrong; too much overlap?");
 		    return;
 		}
+		*/
 		values.get(current).add(player);
 	    }
 	}
