@@ -50,3 +50,6 @@ Max: Fixed some mafia acting bugs, cardhash now fully works.
 
 6-15-14:
 Wilbur: Started testing processing
+
+6-16-14:
+Wilbur: Fixed the cardhash for the third time

@@ -9,4 +9,4 @@ Duplicate names. (FIXED)
 Any role that can kill, can kill themselves.
 
 General bugs:
-Card hashing doesn't work as intended sometimes (seems to work better for smaller groups)
+Card hashing doesn't work as intended sometimes (seems to work better for smaller groups) (FIXED)
