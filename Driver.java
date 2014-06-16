@@ -269,7 +269,6 @@ public class Driver{
 	String in = "";
         
 	ArrayList<Player> players = game.getPlayers();
-	Collections.sort(players,new PriorityComp());
 
 	Mafia mafiaVisitor = new Mafia("I'm going to be gone soon");
 
@@ -414,6 +413,7 @@ public static boolean playerExists(String name, ArrayList<Player> players){
 public static void main(String[] args) {
     startUpRoleChooser();
     int night = 1;
+    Collections.sort(game.getPlayers(),new PriorityComp());
     CardHash hash = new CardHash(game.getPlayers());
     System.out.println(hash);
     while (game.checkWinConditions() == 0){ //loop
