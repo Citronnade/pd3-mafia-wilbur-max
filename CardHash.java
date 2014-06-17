@@ -52,7 +52,7 @@ public class CardHash{ //wtf
 	    if (bucket.size() > 0){
 		int s = 0;
 		for (Player player: bucket){
-		    part += player.name + ", " + player.getClass() + ": " + cards[i] + " of ";
+		    part += player.name + ", " + player.getClass().getName() + ": " + cards[i] + " of ";
 		    part += suits[s] + "\n";
 		    s++;
 		}
