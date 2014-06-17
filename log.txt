@@ -53,3 +53,4 @@ Wilbur: Started testing processing
 
 6-16-14:
 Wilbur: Fixed the cardhash for the third time
+Max: FINALLY FIXED MAFIA ACTING (hopefully)
