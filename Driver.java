@@ -164,7 +164,7 @@ public class Driver{
     	Scanner s = new Scanner(System.in);
     	System.out.println("What kind of player would you like to be? ");
     	for (String str : types){
-	     System.out.print(str + " " 
+	    System.out.print(str + " " 
 			     //+ "[" + str.substring(0,1) + "]"
 			     + " ");
     	}
@@ -267,14 +267,20 @@ public class Driver{
 	Mafia mafiaVisitor = new Mafia("I'm going to be gone soon");
 
 	for (Player currentP: players){
-	    
-	    if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
-		  
+	    int actValue = currentP.act();
+	    if(1 == 1){//if != -1, then that person didn't complete a night action yet
+		//don't want to screw up the logic any more
+		System.out.println("mafiawent:" + game.mafiaWent);
+		if (currentP instanceof Mafia && !game.mafiaWent){
+		    game.mafiaWent = true; //must be reset every tick
+		    mafiaVisitor = (Mafia) currentP;
+		    System.out.println("currentP: " + currentP);
+		}
+
+		//System.out.println("current's class: " + currentP.getClass());
+		//System.out.println("is it a mafia? " + (currentP instanceof Mafia));
   		if(currentP.priority <= 2 && !game.mafiaWent){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
-  		    if (currentP instanceof Mafia){
-  		    	game.mafiaWent = true; //must be reset every tick
-  		    	mafiaVisitor = (Mafia) currentP;
-  		    }
+		    System.out.println("normal killing:");
   		    if (game.mafiaWent){
   		    	System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit.");
 
@@ -288,11 +294,13 @@ public class Driver{
 			for (Player target: players){    //find the target.  we can quickselect
   			    if (target.getName().equals(in)){
 				mafiaVisitor.kill(target); //basically puts kill mark on target.
+				game.mafiaDone = true;
 				//mafia now kill manually, act() routines do nothing.
   			    }
 			}
 		    }
-		} else {
+		} 
+		if (actValue != -1){ //moved the skip to here
 		    System.out.println(currentP.getName() + 
 				       "(" + currentP.getClass().getName() + ")"
 				       + ", please wake up.");
@@ -318,95 +326,117 @@ public class Driver{
 		}
 	    }
 	    
+	    //mafia night action
+
 	    in = "";
 	}
-	//mafia night action
+	if (!game.mafiaDone && mafiaVisitor != null){ //mafia somehow still got skipped over and is not eliminated yet:
+	    System.out.println("alternative killing:");
+	    System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit."); //put in killing
+		
+	    in = s.nextLine();
+
+	    while (!(playerExists(in, players))){
+		System.out.println("Please choose someone in the game.");
+		in = s.nextLine();
+	    }
+	    
+	    for (Player target: players){    //find the target.  we can quickselect
+		if (target.getName().equals(in)){
+		    mafiaVisitor.kill(target); //basically puts kill mark on target.
+		    game.mafiaDone = true;
+		    //mafia now kill manually, act() routines do nothing.
+		}
+	    }
+	}
 	game.mafiaWent = false;
+	game.mafiaDone = false;
+
 	
     }
     
-public static void dayTime(){//daytime phase
-    Scanner s = new Scanner(System.in);
+    public static void dayTime(){//daytime phase
+	Scanner s = new Scanner(System.in);
 
-    System.out.println("It's daytime! Discuss who you wanna lynch, if anyone.");
-    System.out.print("Do you want to lynch someone? (Y/N) ");
+	System.out.println("It's daytime! Discuss who you wanna lynch, if anyone.");
+	System.out.print("Do you want to lynch someone? (Y/N) ");
 
-    String in = s.nextLine();
-    in = in.toLowerCase();
-    while (!(in.equals("y") || in.equals("n")
-	     || in.equals("no") || in.equals("yes"))){
-	System.out.print("Please input Y/N/Yes/No: ");
-	in = s.nextLine();
-    }
-
-    if (in.equals("no") || in.equals("n")){
-	return;
-    } else { //yes
-	System.out.print("Who do you wanna lynch? ");
-	printAll();
-	in = s.nextLine();
-	while (!(playerExists(in,game.getPlayers()))){
-	    System.out.print("Please choose someone in the game: ");
+	String in = s.nextLine();
+	in = in.toLowerCase();
+	while (!(in.equals("y") || in.equals("n")
+		 || in.equals("no") || in.equals("yes"))){
+	    System.out.print("Please input Y/N/Yes/No: ");
 	    in = s.nextLine();
 	}
-	game.removePlayer(in);
+
+	if (in.equals("no") || in.equals("n")){
+	    return;
+	} else { //yes
+	    System.out.print("Who do you wanna lynch? ");
+	    printAll();
+	    in = s.nextLine();
+	    while (!(playerExists(in,game.getPlayers()))){
+		System.out.print("Please choose someone in the game: ");
+		in = s.nextLine();
+	    }
+	    game.removePlayer(in);
+	}
+
     }
 
-}
-
-public static void printAll(){// test function
-    for (Player p : game.getPlayers()){
-	System.out.println(p);
-    }
-}
-    
-
-public static boolean playerExists(String name, ArrayList<Player> players){
-    for (int x = 0; x <players.size();x++){
-	if (players.get(x).getName().equals(name)){
-	    return true;
+    public static void printAll(){// test function
+	for (Player p : game.getPlayers()){
+	    System.out.println(p);
 	}
     }
-    return false;
-}
+    
 
-public static void main(String[] args) {
-    startUpRoleChooser();
-    int night = 1;
-    Collections.sort(game.getPlayers(),new PriorityComp());
-    CardHash hash = new CardHash(game.getPlayers());
-    System.out.println();
-    System.out.println("These cards represent the different roles for the people.");
-    System.out.println(hash);
-    while (game.checkWinConditions() == 0){ //loop
-        //game.tick();
-        System.out.println();
-        System.out.println("Night " + night
-			   + "\nEverybody go to sleep!");
-      
-        night++;
-        loopThroughPlayers();
-        queryPlayers("");
-        System.out.println();
-        System.out.println("Everybody wake up!");
-
-        System.out.println();
-        printAll();//test
-        System.out.println();
-
-        System.out.println(game.processMarks());
-
-        System.out.println();
-        printAll();//test
-        System.out.println();
-
-        if (game.checkWinConditions() != 0){
-            break;
-        }
-        dayTime();
-
+    public static boolean playerExists(String name, ArrayList<Player> players){
+	for (int x = 0; x <players.size();x++){
+	    if (players.get(x).getName().equals(name)){
+		return true;
+	    }
+	}
+	return false;
     }
-}
+
+    public static void main(String[] args) {
+	startUpRoleChooser();
+	int night = 1;
+	Collections.sort(game.getPlayers(),new PriorityComp());
+	CardHash hash = new CardHash(game.getPlayers());
+	System.out.println();
+	System.out.println("These cards represent the different roles for the people.");
+	System.out.println(hash);
+	while (game.checkWinConditions() == 0){ //loop
+	    //game.tick();
+	    System.out.println();
+	    System.out.println("Night " + night
+			       + "\nEverybody go to sleep!");
+      
+	    night++;
+	    loopThroughPlayers();
+	    queryPlayers("");
+	    System.out.println();
+	    System.out.println("Everybody wake up!");
+
+	    System.out.println();
+	    printAll();//test
+	    System.out.println();
+
+	    System.out.println(game.processMarks());
+
+	    System.out.println();
+	    printAll();//test
+	    System.out.println();
+
+	    if (game.checkWinConditions() != 0){
+		break;
+	    }
+	    dayTime();
+
+	}
+    }
     
 }
  

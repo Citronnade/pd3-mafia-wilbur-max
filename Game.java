@@ -7,6 +7,7 @@ public class Game{
     private ArrayList<Player> players;
     private String[] deathMessages;
     protected static boolean mafiaWent;
+    protected static boolean mafiaDone;
 
     public void addPlayer(Player p){
 	players.add(p);
