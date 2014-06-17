@@ -156,12 +156,6 @@ public class Driver{
 
         }
 
-        /*
-	  for (int i = 0; i < numOfEachRole.length; i++ ){
-	  addPlayer(numOfEachRole[i],roles[i]);
-	  }
-        */
-
     }
 
     public static void addPlayer(){//temporary thing for testing purposes
@@ -369,52 +363,14 @@ public static boolean playerExists(String name, ArrayList<Player> players){
     }
     return false;
 }
-    
-//----------------------------------------
 
-//----------------------------------------
-/*
-  public static void main(String args[]){ //perhaps can set up with args[] instead...
-  int night = 1;
-
-  startUp();
-  while (game.checkWinConditions() == 0){ //loop
-  //game.tick();
-  System.out.println();
-  System.out.println("Night " + night
-  + "\nEverybody go to sleep!");
-	  
-  night++;
-  loopThroughPlayers();
-  queryPlayers("");
-  System.out.println();
-  System.out.println("Everybody wake up!");
-
-  System.out.println();
-  printAll();//test
-  System.out.println();
-
-  System.out.println(game.processMarks());
-
-  System.out.println();
-  printAll();//test
-  System.out.println();
-
-  if (game.checkWinConditions() != 0){
-  break;
-  }
-  dayTime();
-
-  }
-  }
-*/
-//testing
-    
 public static void main(String[] args) {
     startUpRoleChooser();
     int night = 1;
     Collections.sort(game.getPlayers(),new PriorityComp());
     CardHash hash = new CardHash(game.getPlayers());
+    System.out.println();
+    System.out.println("These cards represent the different roles for the people.");
     System.out.println(hash);
     while (game.checkWinConditions() == 0){ //loop
         //game.tick();
@@ -448,62 +404,3 @@ public static void main(String[] args) {
     
 }
  
-
-//UNUSED CODE
-/*
-  public static void queryPlayers(String allPlayers,
-  ArrayList<Player> players,
-  ArrayList<Player> mafia,
-  ArrayList<Player> cops,
-  ArrayList<Player> doctors){//asks everyone to do stuff, night thing
-  //THERE MUST BE A BETTER WAY TO DO THIS
-  Scanner s = new Scanner(System.in);
-  //Mafia
-  System.out.println();
-  System.out.println("Mafia, please wake up.");
-  System.out.println("Mafia, choose someone to kill tonight");
-  System.out.println(allPlayers);
-        
-  String in = "";
-
-  while (!(playerExists(in, players))){
-  System.out.println("Please choose someone in the game.");
-  in = s.nextLine();
-  }
-  for (int x = 0; x < players.size();x++){   
-  if (players.get(x).getName().equals(in)){
-  players.get(x).addMark(new Mark("mafiadeath"));
-  }
-  }
-  System.out.println("Mafia, please go to sleep.");
-
-  in = "";
-  //Cops
-  System.out.println();
-  System.out.println("Cops, please wake up.");
-  System.out.println("Cops, choose someone to inspect");
-  System.out.println(allPlayers);
-
-  while (!(playerExists(in, players))){
-  System.out.println("Please choose someone in the game.");
-  in = s.nextLine();
-  }
-        
-
-  System.out.println("Cops, please go to sleep.");
-
-  in = "";
-  //Doctors
-  System.out.println();
-  System.out.println("Doctors, please wake up.");
-  System.out.println("Doctors, choose someone to save tonight");
-  System.out.println(allPlayers);
-
-        while (!(playerExists(in, players))){
-            System.out.println("Please choose someone in the game.");
-            in = s.nextLine();
-        }
-        System.out.println("Doctors, please go to sleep.");
-
-    }
-    */

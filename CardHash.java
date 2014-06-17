@@ -21,11 +21,11 @@ public class CardHash{ //wtf
 	int normalizer = players.get(0).priority; //take each player's priority, multiply by 7, divide by this.  Should this be a double?
 	int current = 0;
 	for (Player player: players){ //sorted in priority order
-	    System.out.println(values.size());
-	    System.out.println(players.size());
-	    System.out.println("normalizer:" + normalizer);
+	    //System.out.println(values.size());
+	   // System.out.println(players.size());
+	   // System.out.println("normalizer:" + normalizer);
 	    int pri = (int)(((double) player.priority * 7) / (double) normalizer + 5); //start at 6--> A;
-	    System.out.println("pri:" + pri);
+	   // System.out.println("pri:" + pri);
 	    if (values.get(pri).size() < 4){
 		values.get(pri).add(player);
 	    }
