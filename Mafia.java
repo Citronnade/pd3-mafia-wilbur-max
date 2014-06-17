@@ -10,12 +10,12 @@ public class Mafia extends Player{ //maybe mafia as a group should get a priorit
     }
 
     public int act(){
-	return 0;
+	return -1;
     }
 
     public int act(Player other){
 	if (false){
-	    return 0;
+	    return -1;
 	}
 	/*
 	else{
@@ -23,7 +23,7 @@ public class Mafia extends Player{ //maybe mafia as a group should get a priorit
 	    return 1;
 	}
 	*/
-	return 0; //DISABLED.  MAFIA MANUALLY CALL KILL.
+	return -1; //DISABLED.  MAFIA MANUALLY CALL KILL.
 	
     }
 
