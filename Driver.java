@@ -164,7 +164,7 @@ public class Driver{
     	Scanner s = new Scanner(System.in);
     	System.out.println("What kind of player would you like to be? ");
     	for (String str : types){
-	    System.out.print(str + " " 
+	     System.out.print(str + " " 
 			     //+ "[" + str.substring(0,1) + "]"
 			     + " ");
     	}
