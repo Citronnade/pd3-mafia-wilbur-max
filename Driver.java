@@ -273,8 +273,8 @@ public class Driver{
 	Mafia mafiaVisitor = new Mafia("I'm going to be gone soon");
 
 	for (Player currentP: players){
-
-	  if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
+	    
+	    if(currentP.act() != -1){//if != -1, then that person didn't complete a night action yet
 		  
   		if(currentP.priority <= 2 && !game.mafiaWent){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
   		    if (currentP instanceof Mafia){
@@ -287,17 +287,17 @@ public class Driver{
   		    	in = s.nextLine();
 
   		    	while (!(playerExists(in, players))){
-  			     System.out.println("Please choose someone in the game.");
-  			     in = s.nextLine();
-  			  }
+			    System.out.println("Please choose someone in the game.");
+			    in = s.nextLine();
+			}
 
-  			  for (Player target: players){    //find the target.  we can quickselect
+			for (Player target: players){    //find the target.  we can quickselect
   			    if (target.getName().equals(in)){
-  				  mafiaVisitor.kill(target); //basically puts kill mark on target.
-  				  //mafia now kill manually, act() routines do nothing.
+				mafiaVisitor.kill(target); //basically puts kill mark on target.
+				//mafia now kill manually, act() routines do nothing.
   			    }
-  			  }
-  	  }
+			}
+		    }
 		} else {
 		    System.out.println(currentP.getName() + 
 				       "(" + currentP.getClass().getName() + ")"
@@ -315,6 +315,12 @@ public class Driver{
 		    System.out.println(currentP.getName() + ", please go to sleep.");
 		    System.out.println();
 		
+		}
+	    }
+	    else{
+		if (currentP instanceof Mafia && !game.mafiaWent){
+		    game.mafiaWent = true; //must be reset every tick
+		    mafiaVisitor = (Mafia) currentP;
 		}
 	    }
 	    
