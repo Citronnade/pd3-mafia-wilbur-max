@@ -50,5 +50,4 @@ Running this tool:
 4. The runner of the Driver class will be the overseeing god, and god should grab a pack of cards.
 5. Follow in terminal prompts. 
 6. Distribute cards once the cards and people's roles are shown to you (do not show them their roles)
-7. Show the players a file containing info about the cards that they were given (the file does not have the people associated with the role's name on it)
-8. Return the screen to yourself and then run the game, giving commentary and story as needed.
+7. Run the game, giving commentary and story as needed.
