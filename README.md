@@ -43,6 +43,7 @@ The serial killer wins when everyone else dies.
 The fool wins by dying.
 
 Running this tool:
+
 1. Clone the directory.
 2. Run the Java Compiler on all of the files.
 3. Run the Driver class.
