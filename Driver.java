@@ -57,7 +57,7 @@ public class Driver{
         game = new Game();
         
         int numRolesRemaining = numPlayers;//number of roles left to assign
-        String[] roles = {"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","serialkillers","villager"};
+        String[] roles = {"mafia","godfathers","framers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","serialkillers","villager"};
         int[] numOfEachRole = new int[roles.length];//array for the number of people with that role 
         int i = 0;
         while (numRolesRemaining > 0){
@@ -85,6 +85,7 @@ public class Driver{
             i++;
 
         }
+	System.out.println("numofEachRole:" + Arrays.toString(numOfEachRole));
 
         String[] names = new String[numPlayers];
         int index = 0;
@@ -107,19 +108,25 @@ public class Driver{
                 rolesInGame.add(roles[i]);//j roles of type i
             }
         }
+	System.out.println(rolesInGame);
 
         for (i = 0; i < names.length; i++){
             int rand = (int)(Math.random() * rolesInGame.size());
             String roleForI =  rolesInGame.get(rand);
             rolesInGame.remove(rand);
-
+	    System.out.println("roleForI: " + roleForI);
+	    System.out.println("rolesInGame: " + rolesInGame);
             switch (roleForI){
-                //"mafia","godfathers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","serialkillers","villager"
+                //"mafia","godfathers","framers","cops","doctors","bombs","drunks","vigilantes","grannies","fools","hookers","serialkillers","villager"
 	    case "mafia": game.addPlayer(new Mafia(names[i]));
 		break;
 	    case "godfathers": game.addPlayer(new Godfather(names[i]));
 		break;
+	    case "framers": game.addPlayer(new Framer(names[i]));
+		break;
 	    case "cops": 
+		game.addPlayer(new Cop(names[i]));
+		/*
 		double rando = Math.random();
 		if (rando < 0.25){
 		    game.addPlayer(new Cop(names[i]));
@@ -133,6 +140,8 @@ public class Driver{
 		else {
 		    game.addPlayer(new InsaneCop(names[i]));
 		}
+		break;
+		*/
 		break;
 	    case "doctors": game.addPlayer(new Doctor(names[i]));
 		break;
@@ -159,7 +168,7 @@ public class Driver{
     }
 
     public static void addPlayer(){//temporary thing for testing purposes
-    	String[] types = {"villager","mafia","godfather","cop","doctor","bomb","drunk","vigilante","granny","fool","hooker","serialkiller"};
+    	String[] types = {"villager","mafia","godfather","framer", "cop","doctor","bomb","drunk","vigilante","granny","fool","hooker","serialkiller"};
 
     	Scanner s = new Scanner(System.in);
     	System.out.println("What kind of player would you like to be? ");

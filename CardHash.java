@@ -6,15 +6,18 @@ import java.util.*;
 public class CardHash{ //wtf
     private ArrayList<LinkedList> values;
     private ArrayList<Player> players; //do we need this?
+    private String all;
     
     public CardHash(ArrayList<Player> players){
 	values = new ArrayList(13);
 	for (int i = 0; i< 13; i++){
 	    values.add(new LinkedList());
+
 	}
 
 	this.players = players;
 	init();
+	    all = makeString();
     }
 
     public void init(){ //stuff into linkedlist buckets.  if out o froom go backwards.
@@ -34,7 +37,8 @@ public class CardHash{ //wtf
 		    	current ++;
 			}/*
 		if (values.get(current).size() != 0){
-		    System.out.println("something went wrong; too much overlap?");
+
+		System.out.println("something went wrong; too much overlap?");
 		    return;
 		}
 		*/
@@ -43,7 +47,7 @@ public class CardHash{ //wtf
 	}
     }
     
-    public String toString(){
+    public String makeString(){
 	String[] cards = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
 	String[] suits = {"spades","hearts","clubs","diamonds"};
 	String part = "";
@@ -60,5 +64,16 @@ public class CardHash{ //wtf
 	}
 	return part;
     }
+
     
+
+    public String toString(){
+	return all;
+	//	System.out.println(all);
+    }
+
+    // public String getPlayerText(Player p){
+    // 	String name = p.getName();
+    // 	String part = all.parseString(
+    // }
 }

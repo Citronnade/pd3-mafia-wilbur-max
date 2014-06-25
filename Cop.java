@@ -24,6 +24,12 @@ public class Cop extends Player {
     
     public int inspect (Player other) {
 	other.addMark(new Mark(this, "inspect"));
+	for (Mark mark: other.marks){
+	    if (mark.getType() == "frame"){
+		System.out.println (other.getName() + " is associated with the mafia.");
+		return 1;
+	    }
+	}
 	if (other instanceof Mafia){
 	    if (other instanceof Godfather){
 		System.out.println (other.getName() + " is innocent.");
