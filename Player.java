@@ -37,7 +37,7 @@ public abstract class Player{
     }
 
     public String toString(){
-        return name + " " + marks;
+        return name;
     }
 
     public boolean isBlocked(){

@@ -279,17 +279,17 @@ public class Driver{
 	    int actValue = currentP.act();
 	    if(1 == 1){//if != -1, then that person didn't complete a night action yet
 		//don't want to screw up the logic any more
-		System.out.println("mafiawent:" + game.mafiaWent);
+		//System.out.println("mafiawent:" + game.mafiaWent);
 		if (currentP instanceof Mafia && !game.mafiaWent){
 		    game.mafiaWent = true; //must be reset every tick
 		    mafiaVisitor = (Mafia) currentP;
-		    System.out.println("currentP: " + currentP);
+		   // System.out.println("currentP: " + currentP);
 		}
 
 		//System.out.println("current's class: " + currentP.getClass());
 		//System.out.println("is it a mafia? " + (currentP instanceof Mafia));
   		if(currentP.priority <= 2 && !game.mafiaWent){ //this checks if we skipped past where the mafia should go, even if there are no vanilla mafia
-		    System.out.println("normal killing:");
+		    //System.out.println("normal killing:");
   		    if (game.mafiaWent){
   		    	System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit.");
 
@@ -340,7 +340,7 @@ public class Driver{
 	    in = "";
 	}
 	if (!game.mafiaDone && mafiaVisitor != null){ //mafia somehow still got skipped over and is not eliminated yet:
-	    System.out.println("alternative killing:");
+	    //System.out.println("alternative killing:");
 	    System.out.println("Mafia, choose someone to kill.  " + mafiaVisitor.getName() + " will visit."); //put in killing
 		
 	    in = s.nextLine();
